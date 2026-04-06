@@ -1,0 +1,5 @@
+# Sofle Pico backups
+/PCB/Sofle_Pico-backups/*
+/PCB/_autosave*
+/PCB/~_autosave*
+
