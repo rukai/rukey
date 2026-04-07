@@ -915,6 +915,10 @@
       {
         "netclass": "VDC",
         "pattern": "VDC"
+      },
+      {
+        "netclass": "GND",
+        "pattern": "row0"
       }
     ]
   },
