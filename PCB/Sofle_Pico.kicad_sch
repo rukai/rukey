@@ -2522,12 +2522,6 @@
 		(uuid "fe43db60-1c9d-4cc7-b539-bcdcc6b0cb5a")
 	)
 	(junction
-		(at 66.04 148.59)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "01a1528d-9839-4449-b97a-7da0741d5989")
-	)
-	(junction
 		(at 152.4 107.95)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2550,12 +2544,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "26a4cd58-f864-4051-b728-9d09c0b7ecd4")
-	)
-	(junction
-		(at 30.48 124.46)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "3550aeea-0421-466d-9db2-b476058fdfbd")
 	)
 	(junction
 		(at 111.76 91.44)
@@ -2690,12 +2678,6 @@
 		(uuid "8b124fc6-3bf3-41bb-97eb-40711b84b528")
 	)
 	(junction
-		(at 50.8 124.46)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "8e84fc59-3e72-437d-9259-107a3f1ae9b0")
-	)
-	(junction
 		(at 147.32 148.59)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2726,12 +2708,6 @@
 		(uuid "a78ed2e4-2c2e-4beb-ae43-3e6445f2fb8d")
 	)
 	(junction
-		(at 45.72 132.08)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "a78f0b53-17bd-4b87-99b3-09934b0d493a")
-	)
-	(junction
 		(at 50.8 91.44)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2748,12 +2724,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c2fecd77-1759-4bdf-bcd1-2df21031f495")
-	)
-	(junction
-		(at 45.72 148.59)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "c34222dc-59ad-4734-8579-e6bc1c11bdf7")
 	)
 	(junction
 		(at 86.36 148.59)
@@ -2814,12 +2784,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f7debccd-184e-4246-a95d-9a7d0c1baeb2")
-	)
-	(junction
-		(at 30.48 107.95)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "fcc2370f-effe-43a7-9037-dc6dcd7709d0")
 	)
 	(junction
 		(at 71.12 91.44)
@@ -2935,7 +2899,7 @@
 	)
 	(wire
 		(pts
-			(xy 45.72 132.08) (xy 27.94 132.08)
+			(xy 27.94 132.08) (xy 66.04 132.08)
 		)
 		(stroke
 			(width 0)
@@ -3195,16 +3159,6 @@
 	)
 	(wire
 		(pts
-			(xy 45.72 148.59) (xy 66.04 148.59)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8d00c311-db1c-4197-858c-cbb2ead6a2a6")
-	)
-	(wire
-		(pts
 			(xy 127 99.06) (xy 147.32 99.06)
 		)
 		(stroke
@@ -3212,16 +3166,6 @@
 			(type default)
 		)
 		(uuid "9021820b-29d2-4a5a-a6b4-039f8d971d8e")
-	)
-	(wire
-		(pts
-			(xy 30.48 124.46) (xy 30.48 140.97)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "917c782c-073f-4536-925c-67260f4de458")
 	)
 	(wire
 		(pts
@@ -3295,16 +3239,6 @@
 	)
 	(wire
 		(pts
-			(xy 30.48 107.95) (xy 30.48 124.46)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a93f83a5-8be5-4125-bbe0-1141e71c3c84")
-	)
-	(wire
-		(pts
 			(xy 91.44 91.44) (xy 91.44 107.95)
 		)
 		(stroke
@@ -3372,16 +3306,6 @@
 			(type default)
 		)
 		(uuid "b9371f49-bfc7-4f72-bc17-b3bfaad6cc55")
-	)
-	(wire
-		(pts
-			(xy 66.04 132.08) (xy 45.72 132.08)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "be1b6773-5669-4e70-964d-a07c49c0633c")
 	)
 	(wire
 		(pts
@@ -3455,16 +3379,6 @@
 	)
 	(wire
 		(pts
-			(xy 66.04 148.59) (xy 86.36 148.59)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d62b0b92-64a3-48ac-b6ba-d62bebb4e07c")
-	)
-	(wire
-		(pts
 			(xy 147.32 132.08) (xy 167.64 132.08)
 		)
 		(stroke
@@ -3535,16 +3449,6 @@
 	)
 	(wire
 		(pts
-			(xy 50.8 124.46) (xy 50.8 140.97)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ddbaa3c4-5d1a-4d07-bc81-500668ada826")
-	)
-	(wire
-		(pts
 			(xy 86.36 82.55) (xy 106.68 82.55)
 		)
 		(stroke
@@ -3565,7 +3469,7 @@
 	)
 	(wire
 		(pts
-			(xy 27.94 148.59) (xy 45.72 148.59)
+			(xy 27.94 148.59) (xy 86.36 148.59)
 		)
 		(stroke
 			(width 0)
@@ -8243,186 +8147,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Sofle_Pico:SW_PUSH")
-		(at 38.1 124.46 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "00000000-0000-0000-0000-00005b727312")
-		(property "Reference" "SW19"
-			(at 38.1 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "SW_PUSH"
-			(at 38.1 126.492 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Sofle_Pico:Cherry_MX_DS_Hotswap_v3.5.4"
-			(at 39.37 118.11 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 38.1 124.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 38.1 124.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "JLCPCB_PN" ""
-			(at 38.1 124.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "52481ffe-1763-4685-b5ca-79e775d52fa0")
-		)
-		(pin "2"
-			(uuid "5733c07e-8c09-4ffe-b7f2-9a85fcdb62ed")
-		)
-		(instances
-			(project "Sofle_Pico"
-				(path "/06057b3a-55ab-4f4e-913e-2aeec5ff3587"
-					(reference "SW19")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "SofleKeyboard-rescue:D-Lily58-cache-Lily58_Pro-rescue")
-		(at 45.72 128.27 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "00000000-0000-0000-0000-00005b72767a")
-		(property "Reference" "D19"
-			(at 47.7266 127.1016 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "D"
-			(at 47.7266 129.413 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Sofle_Pico:D_SOD-123_DO-35_Hybrid_DoubleSided_V2"
-			(at 45.72 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 45.72 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 45.72 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MFG" "Semtech"
-			(at 45.72 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MFG PN" "1N4148W"
-			(at 45.72 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Voltage Rating" "75v"
-			(at 45.72 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "JLCPCB_PN" "C81598"
-			(at 45.72 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "32f0a377-6fed-4bc8-b67b-196a18866986")
-		)
-		(pin "2"
-			(uuid "d910316a-bb1f-4965-a04c-8b0edd29a4e4")
-		)
-		(instances
-			(project "Sofle_Pico"
-				(path "/06057b3a-55ab-4f4e-913e-2aeec5ff3587"
-					(reference "D19")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "SofleKeyboard-rescue:D-Lily58-cache-Lily58_Pro-rescue")
 		(at 66.04 128.27 90)
 		(unit 1)
@@ -8942,216 +8666,6 @@
 			(project "Sofle_Pico"
 				(path "/06057b3a-55ab-4f4e-913e-2aeec5ff3587"
 					(reference "D24")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "SofleKeyboard-rescue:D-Lily58-cache-Lily58_Pro-rescue")
-		(at 45.72 144.78 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "00000000-0000-0000-0000-00005b734844")
-		(property "Reference" "D25"
-			(at 47.7266 143.6116 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "D"
-			(at 47.7266 145.923 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Sofle_Pico:D_SOD-123_DO-35_Hybrid_DoubleSided_V2"
-			(at 45.72 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 45.72 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 45.72 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MFG" "Semtech"
-			(at 45.72 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MFG PN" "1N4148W"
-			(at 45.72 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Voltage Rating" "75v"
-			(at 45.72 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "JLCPCB_PN" "C81598"
-			(at 45.72 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "7026a352-96b5-4cae-ba01-88d60b89f28e")
-		)
-		(pin "2"
-			(uuid "779b8b58-ba97-442b-bb2c-fe5f19192e8f")
-		)
-		(instances
-			(project "Sofle_Pico"
-				(path "/06057b3a-55ab-4f4e-913e-2aeec5ff3587"
-					(reference "D25")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "SofleKeyboard-rescue:D-Lily58-cache-Lily58_Pro-rescue")
-		(at 66.04 144.78 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "00000000-0000-0000-0000-00005b7349d1")
-		(property "Reference" "D26"
-			(at 68.0466 143.6116 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "D"
-			(at 68.0466 145.923 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Sofle_Pico:D_SOD-123_DO-35_Hybrid_DoubleSided_V2"
-			(at 66.04 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 66.04 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 66.04 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MFG" "Semtech"
-			(at 66.04 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MFG PN" "1N4148W"
-			(at 66.04 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Voltage Rating" "75v"
-			(at 66.04 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "JLCPCB_PN" "C81598"
-			(at 66.04 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "8fc47591-9446-4460-8b7c-c9b42df57158")
-		)
-		(pin "2"
-			(uuid "a353684a-6793-469b-b811-a0660c0a574b")
-		)
-		(instances
-			(project "Sofle_Pico"
-				(path "/06057b3a-55ab-4f4e-913e-2aeec5ff3587"
-					(reference "D26")
 					(unit 1)
 				)
 			)
@@ -9977,82 +9491,6 @@
 			(project "Sofle_Pico"
 				(path "/06057b3a-55ab-4f4e-913e-2aeec5ff3587"
 					(reference "D31")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Sofle_Pico:SW_PUSH")
-		(at 58.42 140.97 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "19e81641-1ae9-4275-b77b-de808df26b71")
-		(property "Reference" "SW26"
-			(at 58.42 137.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "SW_PUSH"
-			(at 58.42 143.002 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Sofle_Pico:Cherry_MX_DS_Hotswap_v3.5.4"
-			(at 57.15 134.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 58.42 140.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 58.42 140.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "JLCPCB_PN" ""
-			(at 58.42 140.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "5195d9dd-576f-41ca-b306-d0b4ed441407")
-		)
-		(pin "2"
-			(uuid "9b627bb4-5e65-4985-8f17-6b0e6d668200")
-		)
-		(instances
-			(project "Sofle_Pico"
-				(path "/06057b3a-55ab-4f4e-913e-2aeec5ff3587"
-					(reference "SW26")
 					(unit 1)
 				)
 			)
@@ -12891,82 +12329,6 @@
 			(project "Sofle_Pico"
 				(path "/06057b3a-55ab-4f4e-913e-2aeec5ff3587"
 					(reference "SW27")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Sofle_Pico:SW_PUSH")
-		(at 38.1 140.97 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "fc972a85-59e5-48e5-b963-7e080ba264e2")
-		(property "Reference" "SW25"
-			(at 38.1 137.16 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "SW_PUSH"
-			(at 38.1 143.002 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Sofle_Pico:Cherry_MX_DS_Hotswap_v3.5.4"
-			(at 36.83 134.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 38.1 140.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 38.1 140.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "JLCPCB_PN" ""
-			(at 38.1 140.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "96b1667e-571b-458f-86a0-e5576bb293b3")
-		)
-		(pin "2"
-			(uuid "a2e83008-5578-4b80-a847-a7a14fe2e4ec")
-		)
-		(instances
-			(project "Sofle_Pico"
-				(path "/06057b3a-55ab-4f4e-913e-2aeec5ff3587"
-					(reference "SW25")
 					(unit 1)
 				)
 			)
