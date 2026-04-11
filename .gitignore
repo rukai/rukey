@@ -1,5 +1,7 @@
-# Sofle Pico backups
-/PCB/Sofle_Pico-backups/*
-/PCB/_autosave*
-/PCB/~_autosave*
+/PCB_main/Sofle_Pico-backups/*
+/PCB_main/_autosave*
+/PCB_main/~_autosave*
+/PCB_thumb_cluster/Sofle_Pico-backups/*
+/PCB_thumb_cluster/_autosave*
+/PCB_thumb_cluster/~_autosave*
 
