@@ -1,7 +1,10 @@
 /PCB_main/Sofle_Pico-backups/*
 /PCB_main/_autosave*
 /PCB_main/~_autosave*
+/PCB_main/Case/*
 /PCB_thumb_cluster/Sofle_Pico-backups/*
 /PCB_thumb_cluster/_autosave*
 /PCB_thumb_cluster/~_autosave*
+/PCB_thumb_cluster/Case/*
+*.lck
 
