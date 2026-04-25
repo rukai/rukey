@@ -6,5 +6,10 @@
 /PCB_thumb_cluster/_autosave*
 /PCB_thumb_cluster/~_autosave*
 /PCB_thumb_cluster/Case/*
+/target
+/rukey_main_pcb.step
+/rukey_thumb_cluster_pcb.step
+/rukey_main_gerber_files.zip
+/rukey_thumb_cluster_gerber_files.zip
 *.lck
 
