@@ -11618,6 +11618,71 @@
 		)
 	)
 	(symbol
+		(lib_id "SofleKeyboard-rescue:GND-Lily58-cache-Lily58_Pro-rescue")
+		(at 116.84 44.45 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c457a62d-55d4-4e9d-b9d9-351f9938db9f")
+		(property "Reference" "#PWR02"
+			(at 110.49 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 112.4458 44.577 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 116.84 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 116.84 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 116.84 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ab089447-5746-4a70-8d85-fb08ae358c3c")
+		)
+		(instances
+			(project "Sofle_Pico"
+				(path "/06057b3a-55ab-4f4e-913e-2aeec5ff3587"
+					(reference "#PWR02")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Sofle_Pico:SW_PUSH")
 		(at 160.02 124.46 0)
 		(unit 1)
@@ -11754,6 +11819,71 @@
 			(project "Sofle_Pico"
 				(path "/06057b3a-55ab-4f4e-913e-2aeec5ff3587"
 					(reference "#PWR026")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "SofleKeyboard-rescue:GND-Lily58-cache-Lily58_Pro-rescue")
+		(at 68.58 44.45 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d1daa309-bf7a-4614-a556-7bfefb446c68")
+		(property "Reference" "#PWR03"
+			(at 62.23 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 64.1858 44.577 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 68.58 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 68.58 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 68.58 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6f6ce280-d4e5-4bc6-a628-75cde766b4ea")
+		)
+		(instances
+			(project "Sofle_Pico"
+				(path "/06057b3a-55ab-4f4e-913e-2aeec5ff3587"
+					(reference "#PWR03")
 					(unit 1)
 				)
 			)
