@@ -2471,9 +2471,9 @@
 		)
 		(uuid "bbf1d71c-d816-4a00-aa2b-83cbafd44dd1")
 	)
-	(text "connection to left half\npopulated on right board only\n(on the right board lcol is actually rcol)"
+	(text "connection to left half\npopulated on right board only\n(on the right board lcol is actually rcol)\n\nnote: the component (and therefore pin numbers) are rotated to allow\nthe idc cable to connect elegantly to the board without twisting."
 		(exclude_from_sim no)
-		(at 123.952 24.638 0)
+		(at 125.73 21.082 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -10085,7 +10085,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_02x08_Odd_Even")
-		(at 121.92 41.91 0)
+		(at 124.46 44.45 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -10110,7 +10110,7 @@
 			)
 		)
 		(property "Footprint" "Connector_PinHeader_2.00mm:PinHeader_2x08_P2.00mm_Vertical"
-			(at 121.92 41.91 0)
+			(at 124.46 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10119,7 +10119,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 121.92 41.91 0)
+			(at 124.46 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10128,7 +10128,7 @@
 			)
 		)
 		(property "Description" "Generic connector, double row, 02x08, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 121.92 41.91 0)
+			(at 124.46 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
