@@ -4896,6 +4896,26 @@
 			)
 		)
 	)
+	(global_label "lcol4"
+		(shape input)
+		(at 44.45 36.83 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "ff2514ce-4b02-4de7-83d3-cf96e43e4a4c")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 44.45 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
 	(symbol
 		(lib_id "Sofle_Pico:SW_PUSH")
 		(at 38.1 74.93 0)
