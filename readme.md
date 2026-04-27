@@ -6,6 +6,8 @@ Used the sofle pico as a base but changed pretty much everything, in order to re
 
 ## BOM
 
+[Printed parts onshape](https://cad.onshape.com/documents/f6585266405bfc96ac0755a6/w/eb9972e583e4bd12c4cf19cb/e/e24845aae63ec51d7ef00fa9?renderMode=0&uiState=69eeedeaa3d4f3ef21615389)
+
 |Quantity|Item|Note|
 |-|-|-|
 |74| MX compatible switches| |
