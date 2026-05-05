@@ -1,0 +1,17 @@
+version 0
+
+device rukey
+nickname "rukey"
+color 0xFF0000
+
+profiles {
+    // Standard profile
+    - {
+        mappings {
+          - on-press : row0-col0 -> keyboard-media-previous-song
+          - on-press : row1-col0 -> keyboard-backtick-tilde
+        }
+    }
+}
+
+pin-remappings { }

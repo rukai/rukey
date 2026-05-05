@@ -1,0 +1,27 @@
+[workspace]
+members = [
+    "rukey_flash",
+    "rukey_config",
+]
+exclude = [
+    "rukey_firmware",
+]
+resolver = "2"
+
+
+[workspace.dependencies]
+heapless = { version = "0.8", default-features = false, features = ["serde"] }
+
+# The profile that 'cargo dist' will build with
+[profile.dist]
+inherits = "release"
+
+[profile.release]
+lto = true
+incremental = false
+opt-level = "z"
+debug = true
+
+[profile.dev]
+opt-level = "z"
+

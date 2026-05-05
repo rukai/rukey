@@ -1,0 +1,29 @@
+version 0
+device rukey
+nickname "My rukey"
+color 0xFF0000
+profiles {
+    - {
+        mappings {
+          - on-press : dpad-up -> mouse-scroll-up 20
+          - on-press : dpad-down -> mouse-scroll-down 20
+          - on-press : dpad-left -> mouse-scroll-left 20
+          - on-press : dpad-right -> mouse-scroll-right 20
+          - on-press : button-left -> keyboard-page-up
+          - on-press : button-right -> keyboard-page-down
+
+          - on-hold 50 : button-left + button-right -> after-millis-hold 50 + set-profile 2
+        }
+    }
+}
+
+pin-remappings {
+    - {
+        input button-left
+        pin 3
+    }
+    - {
+        input button-right
+        pin 20
+    }
+ }

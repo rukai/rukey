@@ -11,5 +11,6 @@
 /rukey_thumb_cluster_pcb.step
 /rukey_main_gerber_files.zip
 /rukey_thumb_cluster_gerber_files.zip
+/rukey_firmware/target
 *.lck
 
