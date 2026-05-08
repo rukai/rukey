@@ -1,5 +1,16 @@
 # Rukey
 
+## Problems with rev 1 (current)
+
+Its completely broken..
+
+* idc socket collides with switches
+* TP* shorted on pico via plated through holes
+* longest screw hole needs more hole, less plastic.
+* longest screw hole on pcb is too close to the pico
+
+## About
+
 This was designed quickly as my personal keyboard, I would like to make this a properly documented project that others can build but don't have the capacity at the moment.
 
 Used the sofle pico as a base but changed pretty much everything, in order to recreate the moonlander but with the goal of being a budget build.
