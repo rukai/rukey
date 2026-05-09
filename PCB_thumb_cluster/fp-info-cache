@@ -1,4 +1,4 @@
-977265369873968
+28129780944195846
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -102508,60 +102508,11 @@ SOD-123
 10
 2
 Sofle_Pico
-Dummy 6812miniE
-Placeholder for the nested SK6812Mini-E/Hotswop socket so the PNP/BOM generates correctly.
-
-0
-0
-0
-Sofle_Pico
-Hole from sofle for M2 posts gold rimmer
-
-
-0
-1
-0
-Sofle_Pico
-Hole from sofle for M2 posts gold rimmer wide-keyplate-hole
-
-
-0
-1
-0
-Sofle_Pico
-LH_Print
-
-
-0
-0
-0
-Sofle_Pico
-Level Shifter Bypass Jumper
-
-
-0
-6
-2
-Sofle_Pico
 MJ-4PP-9
 
 
 0
 8
-4
-Sofle_Pico
-OLED SSD1306 128x64
-
-
-0
-16
-4
-Sofle_Pico
-Pimaroni_PinHeader_1x05_P2.54mm_Vertical Sofle v3b
-Through hole straight pin header, 1x05, 2.54mm pitch, single row
-Through hole pin header THT 1x05 2.54mm single row
-0
-4
 4
 Sofle_Pico
 PinHeader_1x05_P2.54mm_Vertical
@@ -102578,26 +102529,12 @@ Through hole pin header THT 1x05 2.54mm single row
 4
 4
 Sofle_Pico
-RH_Print_Logo
-
-
-0
-0
-0
-Sofle_Pico
 RPi_Pico_SMD_TH_DS
 Through hole straight pin header, 2x20, 2.54mm pitch, double rows
 Through hole pin header THT 2x20 2.54mm double row
 0
 80
 40
-Sofle_Pico
-RotaryEncoder_Alps_EC11E-Switch_Vertical_H20mm-keebio_modified
-Alps rotary encoder, EC12E... with switch, vertical shaft, http://www.alps.com/prod/info/E/HTML/Encoder/Incremental/EC11/EC11E15204A3.html
-rotary encoder
-0
-5
-5
 Sofle_Pico
 SK6803_MINIE_v3.5.4
 
@@ -102634,83 +102571,6 @@ Footprint for Cherry MX style switches with Kailh hotswap socket
 14
 2
 Sofle_Pico
-Sofle Pico Choc Logo copper
-
-
-0
-0
-0
-Sofle_Pico
-Sofle Pico Choc Logo text only
-
-
-0
-0
-0
-Sofle_Pico
-Sofle Pico Choc logo w text vertical
-
-
-0
-0
-0
-Sofle_Pico
-Sofle Pico Logo
-
-
-0
-0
-0
-Sofle_Pico
-Sofle Pico Logo copper
-
-
-0
-0
-0
-Sofle_Pico
-Sofle Pico Logo embed
-
-
-0
-0
-0
-Sofle_Pico
-Sofle Pico Logo text only
-
-
-0
-0
-0
-Sofle_Pico
-Sofle Pico logo w text
-
-
-0
-0
-0
-Sofle_Pico
-Sofle Pico logo w text vertical
-
-
-0
-0
-0
-Sofle_Pico
-Tenting_Puck.kicad_mod_nocenter_v2
-
-
-0
-4
-1
-Sofle_Pico
-backplate_Tenting_Puck_v3.5.5
-
-
-0
-1
-0
-Sofle_Pico
 backplate_hole_M2_terminate
 
 
@@ -102728,48 +102588,6 @@ Sofle_Pico
 backplate_non-hole_EC11_v3.5.5
 Alps rotary encoder, EC12E... with switch, vertical shaft, http://www.alps.com/prod/info/E/HTML/Encoder/Incremental/EC11/EC11E15204A3.html
 rotary encoder
-0
-0
-0
-Sofle_Pico
-keyplate_Tenting_Puck_v3.5.5
-
-
-0
-4
-1
-Sofle_Pico
-keyplate_hole_Cherry_MX_v3.5.5
-
-
-0
-0
-0
-Sofle_Pico
-keyplate_hole_EC11_v3.5.5
-Alps rotary encoder, EC12E... with switch, vertical shaft, http://www.alps.com/prod/info/E/HTML/Encoder/Incremental/EC11/EC11E15204A3.html
-rotary encoder
-0
-0
-0
-Sofle_Pico
-keyplate_hole_M2_standoff_passthrough
-
-
-0
-1
-0
-Sofle_Pico
-keyplate_hole_M2_terminate
-
-
-0
-1
-0
-Sofle_Pico
-sofle diode jig
-
-
 0
 0
 0

@@ -1,6 +1,15 @@
 # Rukey
 
-## Problems with rev 1 (current)
+## rev 2
+
+WIP
+
+### TODO
+
+* 3DP
+  * Add a switch plate
+
+## Problems with rev 1
 
 Its completely broken..
 
@@ -9,49 +18,6 @@ Its completely broken..
 * longest screw hole needs to be longer
 * longest screw hole on pcb is too close to the pico
 
-<!-- old
-
-## TODO
-
-* 3DP
-  * add screw hole in between the 2 idc connectors
-  * move thumb cluster closer to thumb
-  * Add a switch plate
-* PCB
-  * Make board 4mm taller
-  * Shift left-half idc connector to the left 5.0mm and up 4mm
-  * Move pico up 4mm
-  * add screw hole in between the 2 idc connectors
-  * ensure routing around longest screw hole is far away from the hole
-  * make pico into a throughhole footprint
-
-## Done
-
-* 3DP
-  * longest screw needs to be longer
-  * Make case 4mm taller (top-view)
-* PCB
--->
-
-## TODO
-
-* 3DP
-  * add screw hole in between the 2 idc connectors
-  * move thumb cluster closer to thumb
-  * Add a switch plate
-* PCB
-  * move left-half idc connector to the right of the pico + rotate
-  * move right-half idc connector to the right of the pico + rotate
-  * add screw hole top right corner, left of pico
-  * move bottom right screw hole in between keys
-  * maybe: make pico into a throughhole footprint and move right-half idc connector under pico
-
-## Done
-
-* 3DP
-  * longest screw needs to be longer
-  * Make case 4mm taller (top-view)
-* PCB
 
 ## About
 
