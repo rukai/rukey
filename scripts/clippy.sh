@@ -6,9 +6,7 @@ set -e
 
 cd "$(dirname "${BASH_SOURCE[0]}")/.."
 
-cd rukey_config_web_app
-cargo hack --feature-powerset clippy --all-targets --locked -- -D warnings
-cd ../rukey_firmware
+cd rukey_firmware
 cargo hack --feature-powerset clippy --locked -- -D warnings
 cd ..
 cargo hack --feature-powerset clippy --all-targets --locked -- -D warnings

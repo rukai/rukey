@@ -1,13 +1,13 @@
 use std::io::{self, Write};
 
 use crate::buffer_nor_flash::BufferNorFlash;
-use miette::{miette, Result};
+use miette::{Result, miette};
 use picoboot_rs::{
-    PicobootConnection, TargetID, PICO_FLASH_START, PICO_PAGE_SIZE, PICO_SECTOR_SIZE,
-    PICO_STACK_POINTER,
+    PICO_FLASH_START, PICO_PAGE_SIZE, PICO_SECTOR_SIZE, PICO_STACK_POINTER, PicobootConnection,
+    TargetID,
 };
 use rukey_config::{
-    Config, ConfigKey, CONFIG_AVAILABLE_SIZE, CONFIG_OFFSET, FIRMWARE_OFFSET, FIRMWARE_SIZE,
+    CONFIG_AVAILABLE_SIZE, CONFIG_OFFSET, Config, ConfigKey, FIRMWARE_OFFSET, FIRMWARE_SIZE,
     PROFILE_SERIALIZED_SIZE,
 };
 use rusb::Context;

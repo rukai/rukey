@@ -1,8 +1,4 @@
 use defmt::error;
-use rukey_config::{
-    CONFIG_FLASH_RANGE, ConfigKey, MAX_PROFILES, META_SERIALIZED_SIZE, Meta, PICO_FLASH_SIZE,
-    PROFILE_SERIALIZED_SIZE, Profile,
-};
 use embassy_rp::{
     Peri,
     dma::Channel,
@@ -11,6 +7,10 @@ use embassy_rp::{
 };
 use embassy_sync::{blocking_mutex::raw::CriticalSectionRawMutex, mutex::Mutex, watch::Watch};
 use heapless::Vec;
+use rukey_config::{
+    CONFIG_FLASH_RANGE, ConfigKey, MAX_PROFILES, META_SERIALIZED_SIZE, Meta, PICO_FLASH_SIZE,
+    PROFILE_SERIALIZED_SIZE, Profile,
+};
 use sequential_storage::{
     cache::NoCache,
     map::{MapConfig, MapStorage},

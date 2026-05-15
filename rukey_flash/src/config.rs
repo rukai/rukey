@@ -408,7 +408,89 @@ fn test_keyboard_from_string_kebab() {
 pub enum RukeyInputKdl {
     #[default]
     Row0Col0,
+    Row0Col1,
+    Row0Col2,
+    Row0Col3,
+    Row0Col4,
+    Row0Col5,
+    Row0Col6,
+    Row0Col7,
+    Row0Col8,
+    Row0Col9,
+    Row0Col10,
+    Row0Col11,
+    Row0Col12,
+    Row0Col13,
     Row1Col0,
+    Row1Col1,
+    Row1Col2,
+    Row1Col3,
+    Row1Col4,
+    Row1Col5,
+    Row1Col6,
+    Row1Col7,
+    Row1Col8,
+    Row1Col9,
+    Row1Col10,
+    Row1Col11,
+    Row1Col12,
+    Row1Col13,
+    Row2Col0,
+    Row2Col1,
+    Row2Col2,
+    Row2Col3,
+    Row2Col4,
+    Row2Col5,
+    Row2Col6,
+    Row2Col7,
+    Row2Col8,
+    Row2Col9,
+    Row2Col10,
+    Row2Col11,
+    Row2Col12,
+    Row2Col13,
+    Row3Col0,
+    Row3Col1,
+    Row3Col2,
+    Row3Col3,
+    Row3Col4,
+    Row3Col5,
+    Row3Col6,
+    Row3Col7,
+    Row3Col8,
+    Row3Col9,
+    Row3Col10,
+    Row3Col11,
+    Row3Col12,
+    Row3Col13,
+    Row4Col0,
+    Row4Col1,
+    Row4Col2,
+    Row4Col3,
+    Row4Col4,
+    Row4Col5,
+    Row4Col6,
+    Row4Col7,
+    Row4Col8,
+    Row4Col9,
+    Row4Col10,
+    Row4Col11,
+    Row4Col12,
+    Row4Col13,
+    Row5Col0,
+    Row5Col1,
+    Row5Col2,
+    Row5Col3,
+    Row5Col4,
+    Row5Col5,
+    Row5Col6,
+    Row5Col7,
+    Row5Col8,
+    Row5Col9,
+    Row5Col10,
+    Row5Col11,
+    Row5Col12,
+    Row5Col13,
 }
 
 #[derive(KdlConfig, KdlConfigFinalize, Default, Debug)]
@@ -475,66 +557,66 @@ Error:
   × Unknown mode "on-pressa"
    ╭─[bad-mappings.kdl:8:13]
  7 │         mappings {
- 8 │           - on-pressa : dpad-up -> mouse-scroll-up 20
+ 8 │           - on-pressa : row0-col0 -> mouse-scroll-up 20
    ·             ────┬────
    ·                 ╰── here
- 9 │           - on-press : dpad-down + -> mouse-scroll-down 20
+ 9 │           - on-press : row0-col1 + -> mouse-scroll-down 20
    ╰────
 
 Error: 
   × Empty input group, check for duplicate or leading/trailing `+`
     ╭─[bad-mappings.kdl:9:11]
-  8 │           - on-pressa : dpad-up -> mouse-scroll-up 20
-  9 │           - on-press : dpad-down + -> mouse-scroll-down 20
+  8 │           - on-pressa : row0-col0 -> mouse-scroll-up 20
+  9 │           - on-press : row0-col1 + -> mouse-scroll-down 20
     ·           ────────────────────────┬───────────────────────
     ·                                   ╰── here
- 10 │           - on-press : dpad-left mouse-scroll-left 20
+ 10 │           - on-press : row0-col2 mouse-scroll-left 20
     ╰────
 
 Error: 
   × Mapping needs `->` separator between inputs and outputs
     ╭─[bad-mappings.kdl:10:24]
-  9 │           - on-press : dpad-down + -> mouse-scroll-down 20
- 10 │           - on-press : dpad-left mouse-scroll-left 20
+  9 │           - on-press : row0-col1 + -> mouse-scroll-down 20
+ 10 │           - on-press : row0-col2 mouse-scroll-left 20
     ·                        ───────────────┬──────────────
     ·                                       ╰── here
- 11 │           - on-press : dpad-right -> mouse-scroll-right
+ 11 │           - on-press : row0-col3 -> mouse-scroll-right
     ╰────
 
 Error: 
   × Unknown mouse output "mouse-scroll-right"
-    ╭─[bad-mappings.kdl:11:38]
- 10 │           - on-press : dpad-left mouse-scroll-left 20
- 11 │           - on-press : dpad-right -> mouse-scroll-right
-    ·                                      ─────────┬────────
-    ·                                               ╰── here
- 12 │           - on-press : dpad-diagonal -> keyboard-a
+    ╭─[bad-mappings.kdl:11:37]
+ 10 │           - on-press : row0-col2 mouse-scroll-left 20
+ 11 │           - on-press : row0-col3 -> mouse-scroll-right
+    ·                                     ─────────┬────────
+    ·                                              ╰── here
+ 12 │           - on-press : row0-col99 -> keyboard-a
     ╰────
 
 Error: 
-  × Unknown input "dpad-diagonal"
+  × Unknown input "row0-col99"
     ╭─[bad-mappings.kdl:12:24]
- 11 │           - on-press : dpad-right -> mouse-scroll-right
- 12 │           - on-press : dpad-diagonal -> keyboard-a
-    ·                        ──────┬──────
-    ·                              ╰── here
- 13 │           - on-press dpad-diagonal -> keyboard-a
+ 11 │           - on-press : row0-col3 -> mouse-scroll-right
+ 12 │           - on-press : row0-col99 -> keyboard-a
+    ·                        ─────┬────
+    ·                             ╰── here
+ 13 │           - on-press row0-col99 -> keyboard-a
     ╰────
 
 Error: 
   × Mapping needs format `mode : inputs -> outputs`
     ╭─[bad-mappings.kdl:13:11]
- 12 │           - on-press : dpad-diagonal -> keyboard-a
- 13 │           - on-press dpad-diagonal -> keyboard-a
-    ·           ───────────────────┬──────────────────
-    ·                              ╰── here
+ 12 │           - on-press : row0-col99 -> keyboard-a
+ 13 │           - on-press row0-col99 -> keyboard-a
+    ·           ─────────────────┬─────────────────
+    ·                            ╰── here
  14 │           - on-press :
     ╰────
 
 Error: 
   × Mapping needs `->` separator between inputs and outputs
     ╭─[bad-mappings.kdl:14:11]
- 13 │           - on-press dpad-diagonal -> keyboard-a
+ 13 │           - on-press row0-col99 -> keyboard-a
  14 │           - on-press :
     ·           ──────┬─────
     ·                 ╰── here
@@ -557,11 +639,11 @@ Error:
                     color: 0xFF0000,
                     pin_remappings: heapless::Vec::from_iter([
                         PinRemapping {
-                            input: RukeyInput::ButtonLeft,
+                            input: RukeyInput::Row2Col0,
                             pin: 3
                         },
                         PinRemapping {
-                            input: RukeyInput::ButtonRight,
+                            input: RukeyInput::Row2Col1,
                             pin: 20
                         }
                     ])
@@ -569,42 +651,42 @@ Error:
                 profiles: heapless::Vec::from_iter([Profile {
                     mappings: heapless::Vec::from_iter([
                         Mapping {
-                            input_set: heapless::Vec::from_iter([RukeyInput::DpadUp]),
+                            input_set: heapless::Vec::from_iter([RukeyInput::Row0Col0]),
                             mode: MappingMode::OnPress,
                             output_sequence: heapless::Vec::from_iter([ComputerInput::Mouse(
                                 MouseInput::ScrollUp(20),
                             )]),
                         },
                         Mapping {
-                            input_set: heapless::Vec::from_iter([RukeyInput::DpadDown]),
+                            input_set: heapless::Vec::from_iter([RukeyInput::Row0Col1]),
                             mode: MappingMode::OnPress,
                             output_sequence: heapless::Vec::from_iter([ComputerInput::Mouse(
                                 MouseInput::ScrollDown(20),
                             )]),
                         },
                         Mapping {
-                            input_set: heapless::Vec::from_iter([RukeyInput::DpadLeft]),
+                            input_set: heapless::Vec::from_iter([RukeyInput::Row0Col2]),
                             mode: MappingMode::OnPress,
                             output_sequence: heapless::Vec::from_iter([ComputerInput::Mouse(
                                 MouseInput::ScrollLeft(20),
                             )]),
                         },
                         Mapping {
-                            input_set: heapless::Vec::from_iter([RukeyInput::DpadRight]),
+                            input_set: heapless::Vec::from_iter([RukeyInput::Row0Col3]),
                             mode: MappingMode::OnPress,
                             output_sequence: heapless::Vec::from_iter([ComputerInput::Mouse(
                                 MouseInput::ScrollRight(20),
                             )]),
                         },
                         Mapping {
-                            input_set: heapless::Vec::from_iter([RukeyInput::ButtonLeft]),
+                            input_set: heapless::Vec::from_iter([RukeyInput::Row1Col0]),
                             mode: MappingMode::OnPress,
                             output_sequence: heapless::Vec::from_iter([ComputerInput::Keyboard(
                                 KeyboardInput::PageUp,
                             )]),
                         },
                         Mapping {
-                            input_set: heapless::Vec::from_iter([RukeyInput::ButtonRight]),
+                            input_set: heapless::Vec::from_iter([RukeyInput::Row1Col1]),
                             mode: MappingMode::OnPress,
                             output_sequence: heapless::Vec::from_iter([ComputerInput::Keyboard(
                                 KeyboardInput::PageDown,
@@ -612,8 +694,8 @@ Error:
                         },
                         Mapping {
                             input_set: heapless::Vec::from_iter([
-                                RukeyInput::ButtonLeft,
-                                RukeyInput::ButtonRight
+                                RukeyInput::Row1Col0,
+                                RukeyInput::Row1Col1
                             ]),
                             mode: MappingMode::OnHold { hold_ms: 50 },
                             output_sequence: heapless::Vec::from_iter([

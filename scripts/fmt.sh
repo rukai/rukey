@@ -4,7 +4,5 @@ set -e
 
 cd "$(dirname "${BASH_SOURCE[0]}")/.."
 cargo fmt --all
-cd rukey_config_web_app
-cargo fmt --all
-cd ../rukey_firmware
+cd rukey_firmware
 cargo fmt --all

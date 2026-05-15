@@ -6,7 +6,5 @@ set -e
 cd "$(dirname "${BASH_SOURCE[0]}")/.."
 
 cargo upgrades
-cd rukey_config_web_app
-cargo upgrades
-cd ../rukey_firmware
+cd rukey_firmware
 cargo upgrades

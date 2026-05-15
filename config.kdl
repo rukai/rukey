@@ -5,11 +5,99 @@ nickname "rukey"
 color 0xFF0000
 
 profiles {
-    // Standard profile
     - {
         mappings {
+          // num keys
           - on-press : row0-col0 -> keyboard-media-previous-song
+          - on-press : row0-col1 -> keyboard-top-row-1-exclamation
+          - on-press : row0-col2 -> keyboard-top-row-2-at
+          - on-press : row0-col3 -> keyboard-top-row-3-hash
+          - on-press : row0-col4 -> keyboard-top-row-4-dollar
+          - on-press : row0-col5 -> keyboard-top-row-5-percent
+          - on-press : row0-col6 -> keyboard-left-windows + keyboard-enter
+
+          - on-press : row0-col7 -> keyboard-left-shift + keyboard-insert
+          - on-press : row0-col8 -> keyboard-top-row-6-caret
+          - on-press : row0-col9 -> keyboard-top-row-7-ampersand
+          - on-press : row0-col10 -> keyboard-top-row-8-asterisk
+          - on-press : row0-col11 -> keyboard-top-row-9-open-parens
+          - on-press : row0-col12 -> keyboard-top-row-0-close-parens
+          - on-press : row0-col13 -> keyboard-media-next-song
+
+          // qwer
           - on-press : row1-col0 -> keyboard-backtick-tilde
+          - on-press : row1-col1 -> keyboard-q
+          - on-press : row1-col2 -> keyboard-w
+          - on-press : row1-col3 -> keyboard-e
+          - on-press : row1-col4 -> keyboard-r
+          - on-press : row1-col5 -> keyboard-t
+          // - on-press : row1-col6 -> free key
+
+          - on-press : row1-col7 -> keyboard-left-windows + keyboard-left-shift + keyboard-enter
+          - on-press : row1-col8 -> keyboard-y
+          - on-press : row1-col9 -> keyboard-u
+          - on-press : row1-col10 -> keyboard-i
+          - on-press : row1-col11 -> keyboard-o
+          - on-press : row1-col12 -> keyboard-p
+          - on-press : row1-col13 -> keyboard-backslash-bar
+
+          // asdf
+          - on-press : row2-col0 -> keyboard-tab
+          - on-press : row2-col1 -> keyboard-a
+          - on-press : row2-col2 -> keyboard-s
+          - on-press : row2-col3 -> keyboard-d
+          - on-press : row2-col4 -> keyboard-f
+          - on-press : row2-col5 -> keyboard-g
+          - on-press : row2-col6 -> keyboard-equal-plus
+
+          - on-press : row2-col7 -> keyboard-dash-underscore
+          - on-press : row2-col8 -> keyboard-h
+          - on-press : row2-col9 -> keyboard-j
+          - on-press : row2-col10 -> keyboard-k
+          - on-press : row2-col11 -> keyboard-l
+          - on-press : row2-col12 -> keyboard-semi-colon
+          - on-press : row2-col13 -> keyboard-single-double-quote
+
+          // zxcv
+          - on-press : row3-col0 -> keyboard-left-shift
+          - on-press : row3-col1 -> keyboard-z
+          - on-press : row3-col2 -> keyboard-x
+          - on-press : row3-col3 -> keyboard-c
+          - on-press : row3-col4 -> keyboard-v
+          - on-press : row3-col5 -> keyboard-b
+
+          - on-press : row3-col8 -> keyboard-n
+          - on-press : row3-col9 -> keyboard-m
+          - on-press : row3-col10 -> keyboard-comma-less-than
+          - on-press : row3-col11 -> keyboard-period-greater-than
+          - on-press : row3-col12 -> keyboard-slash-question
+          - on-press : row3-col13 -> keyboard-volume-up
+
+          // bottom row
+          - on-press : row4-col0 -> keyboard-media-play-pause
+          - on-press : row4-col1 -> keyboard-left-control
+          - on-press : row4-col2 -> keyboard-mute
+          - on-press : row4-col3 -> keyboard-left-arrow
+          - on-press : row4-col4 -> keyboard-right-arrow
+
+          - on-press : row4-col9 -> keyboard-up-arrow
+          - on-press : row4-col10 -> keyboard-down-arrow
+          //- on-press : row4-col11 -> free key
+          // - on-press : row4-col12 -> free key
+          - on-press : row4-col13 -> keyboard-volume-down
+
+          // thumb cluster
+          - on-press : row5-col0 -> keyboard-backspace
+          - on-press : row5-col1 -> keyboard-spacebar
+          - on-press : row5-col2 -> keyboard-left-windows
+          - on-press : row5-col3 -> keyboard-left-control + keyboard-left-shift + keyboard-spacebar
+          // - on-press : row5-col4 -> free key
+
+          - on-press : row5-col7 -> keyboard-delete
+          - on-press : row5-col8 -> keyboard-enter
+          - on-press : row5-col9 -> keyboard-escape
+          - on-press : row5-col10 -> keyboard-right-alt
+          // - on-press : row5-col11 -> free key
         }
     }
 }

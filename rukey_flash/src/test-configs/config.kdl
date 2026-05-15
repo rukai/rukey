@@ -5,25 +5,25 @@ color 0xFF0000
 profiles {
     - {
         mappings {
-          - on-press : dpad-up -> mouse-scroll-up 20
-          - on-press : dpad-down -> mouse-scroll-down 20
-          - on-press : dpad-left -> mouse-scroll-left 20
-          - on-press : dpad-right -> mouse-scroll-right 20
-          - on-press : button-left -> keyboard-page-up
-          - on-press : button-right -> keyboard-page-down
+          - on-press : row0-col0 -> mouse-scroll-up 20
+          - on-press : row0-col1 -> mouse-scroll-down 20
+          - on-press : row0-col2 -> mouse-scroll-left 20
+          - on-press : row0-col3 -> mouse-scroll-right 20
+          - on-press : row1-col0 -> keyboard-page-up
+          - on-press : row1-col1 -> keyboard-page-down
 
-          - on-hold 50 : button-left + button-right -> after-millis-hold 50 + set-profile 2
+          - on-hold 50 : row1-col0 + row1-col1 -> after-millis-hold 50 + set-profile 2
         }
     }
 }
 
 pin-remappings {
     - {
-        input button-left
+        input row2-col0
         pin 3
     }
     - {
-        input button-right
+        input row2-col1
         pin 20
     }
  }

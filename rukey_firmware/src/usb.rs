@@ -1,6 +1,5 @@
 use core::sync::atomic::{AtomicBool, Ordering};
 use defmt::*;
-use rukey_config::MAX_NICKNAME_LEN;
 use embassy_rp::peripherals::USB;
 use embassy_rp::usb::{Driver, InterruptHandler};
 use embassy_rp::{Peri, bind_interrupts};
@@ -8,6 +7,7 @@ use embassy_usb::class::hid::{ReportId, RequestHandler};
 use embassy_usb::control::OutResponse;
 use embassy_usb::{Builder, Config, Handler};
 use heapless::String;
+use rukey_config::MAX_NICKNAME_LEN;
 use static_cell::StaticCell;
 
 use crate::config::ConfigFlash;

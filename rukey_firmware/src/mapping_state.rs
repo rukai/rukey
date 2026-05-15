@@ -1,8 +1,8 @@
 use crate::keyboard::{KEYBOARD_CHANNEL, KeyboardEvent};
 use crate::mouse::{MOUSE_CHANNEL, MouseEvent};
 use core::ops::ControlFlow;
-use rukey_config::{ComputerInput, RukeyControl, Mapping, MappingMode};
 use embassy_time::Instant;
+use rukey_config::{ComputerInput, Mapping, MappingMode, RukeyControl};
 
 use crate::input::State;
 
