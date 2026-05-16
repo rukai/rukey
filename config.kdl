@@ -86,18 +86,19 @@ profiles {
           // - on-press : row4-col12 -> free key
           - on-press : row4-col13 -> keyboard-volume-down
 
-          // thumb cluster
+          // thumb cluster - left
           - on-press : row5-col0 -> keyboard-backspace
           - on-press : row5-col1 -> keyboard-spacebar
           - on-press : row5-col2 -> keyboard-left-windows
           - on-press : row5-col3 -> keyboard-left-control + keyboard-left-shift + keyboard-spacebar
           // - on-press : row5-col4 -> free key
 
-          - on-press : row5-col7 -> keyboard-delete
-          - on-press : row5-col8 -> keyboard-enter
-          - on-press : row5-col9 -> keyboard-escape
+          // thumb cluster - right
+          //- on-press : row5-col9 -> free key
           - on-press : row5-col10 -> keyboard-right-alt
-          // - on-press : row5-col11 -> free key
+          - on-press : row5-col11 -> keyboard-escape
+          - on-press : row5-col12 -> keyboard-enter
+          - on-press : row5-col13 -> keyboard-delete
         }
     }
 }

@@ -28,20 +28,26 @@ impl Inputs {
     pub async fn process(&mut self) {
         let mut rx = CONFIG_UPDATED.receiver().unwrap();
 
-        let col0_pin = 16;
-        let col1_pin = 17;
-        let col2_pin = 18;
-        let col3_pin = 19;
-        let col4_pin = 20;
-        let col5_pin = 21;
-        let col6_pin = 22;
-        let col7_pin = 15;
-        let col8_pin = 14;
-        let col9_pin = 13;
-        let col10_pin = 12;
-        let col11_pin = 11;
-        let col12_pin = 10;
-        let col13_pin = 7;
+        // lcol pins 0-6
+        let col0_pin = 16; // lcol 0
+        let col1_pin = 17; // lcol 1
+        let col2_pin = 18; // lcol 2
+        let col3_pin = 19; // lcol 3
+        let col4_pin = 20; // lcol 4
+        let col5_pin = 21; // lcol 5
+        let col6_pin = 22; // lcol 6
+
+        // rcol pins 0-6
+        // rcol pins are mirrored from lcol pins, so the two innermost columns are 6 and the outermost columns are 0.
+        // i.e. 0123456 6543210
+        // However, to make mapping configuration feel more natural, we convert these mirrored pins into a series of columns from 0-13 going from left to right
+        let col7_pin = 7; // rcol 6
+        let col8_pin = 10; // rcol 5
+        let col9_pin = 11; // rcol 4
+        let col10_pin = 12; // rcol 3
+        let col11_pin = 13; // rcol 2
+        let col12_pin = 14; // rcol 1
+        let col13_pin = 15; // rcol 0
 
         let row0_pin = 6;
         let row1_pin = 5;
@@ -242,8 +248,6 @@ impl RukeyInputState {
             RukeyInput::Row3Col3 => self.pressed[3][3],
             RukeyInput::Row3Col4 => self.pressed[3][4],
             RukeyInput::Row3Col5 => self.pressed[3][5],
-            RukeyInput::Row3Col6 => self.pressed[3][6],
-            RukeyInput::Row3Col7 => self.pressed[3][7],
             RukeyInput::Row3Col8 => self.pressed[3][8],
             RukeyInput::Row3Col9 => self.pressed[3][9],
             RukeyInput::Row3Col10 => self.pressed[3][10],
@@ -255,10 +259,6 @@ impl RukeyInputState {
             RukeyInput::Row4Col2 => self.pressed[4][2],
             RukeyInput::Row4Col3 => self.pressed[4][3],
             RukeyInput::Row4Col4 => self.pressed[4][4],
-            RukeyInput::Row4Col5 => self.pressed[4][5],
-            RukeyInput::Row4Col6 => self.pressed[4][6],
-            RukeyInput::Row4Col7 => self.pressed[4][7],
-            RukeyInput::Row4Col8 => self.pressed[4][8],
             RukeyInput::Row4Col9 => self.pressed[4][9],
             RukeyInput::Row4Col10 => self.pressed[4][10],
             RukeyInput::Row4Col11 => self.pressed[4][11],
@@ -269,10 +269,6 @@ impl RukeyInputState {
             RukeyInput::Row5Col2 => self.pressed[5][2],
             RukeyInput::Row5Col3 => self.pressed[5][3],
             RukeyInput::Row5Col4 => self.pressed[5][4],
-            RukeyInput::Row5Col5 => self.pressed[5][5],
-            RukeyInput::Row5Col6 => self.pressed[5][6],
-            RukeyInput::Row5Col7 => self.pressed[5][7],
-            RukeyInput::Row5Col8 => self.pressed[5][8],
             RukeyInput::Row5Col9 => self.pressed[5][9],
             RukeyInput::Row5Col10 => self.pressed[5][10],
             RukeyInput::Row5Col11 => self.pressed[5][11],
