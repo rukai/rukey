@@ -29,25 +29,25 @@ impl Inputs {
         let mut rx = CONFIG_UPDATED.receiver().unwrap();
 
         // lcol pins 0-6
-        let col0_pin = 16; // lcol 0
-        let col1_pin = 17; // lcol 1
-        let col2_pin = 18; // lcol 2
+        // lcol pins are mirrored from rcol pins, so the two innermost columns are 0 and the outermost columns are 6.
+        // However, to make mapping configuration feel more natural, we convert these mirrored pins into a series of columns from 0-13 going from left to right
+        // i.e. 6543210 0123456
+        let col0_pin = 22; // lcol 6
+        let col1_pin = 21; // lcol 5
+        let col2_pin = 20; // lcol 4
         let col3_pin = 19; // lcol 3
-        let col4_pin = 20; // lcol 4
-        let col5_pin = 21; // lcol 5
-        let col6_pin = 22; // lcol 6
+        let col4_pin = 18; // lcol 2
+        let col5_pin = 17; // lcol 1
+        let col6_pin = 16; // lcol 0
 
         // rcol pins 0-6
-        // rcol pins are mirrored from lcol pins, so the two innermost columns are 6 and the outermost columns are 0.
-        // i.e. 0123456 6543210
-        // However, to make mapping configuration feel more natural, we convert these mirrored pins into a series of columns from 0-13 going from left to right
-        let col7_pin = 7; // rcol 6
-        let col8_pin = 10; // rcol 5
-        let col9_pin = 11; // rcol 4
+        let col7_pin = 15; // rcol 0
+        let col8_pin = 14; // rcol 1
+        let col9_pin = 13; // rcol 2
         let col10_pin = 12; // rcol 3
-        let col11_pin = 13; // rcol 2
-        let col12_pin = 14; // rcol 1
-        let col13_pin = 15; // rcol 0
+        let col11_pin = 11; // rcol 4
+        let col12_pin = 10; // rcol 5
+        let col13_pin = 7; // rcol 6
 
         let row0_pin = 6;
         let row1_pin = 5;
@@ -264,16 +264,16 @@ impl RukeyInputState {
             RukeyInput::Row4Col11 => self.pressed[4][11],
             RukeyInput::Row4Col12 => self.pressed[4][12],
             RukeyInput::Row4Col13 => self.pressed[4][13],
-            RukeyInput::Row5Col0 => self.pressed[5][0],
-            RukeyInput::Row5Col1 => self.pressed[5][1],
-            RukeyInput::Row5Col2 => self.pressed[5][2],
+            RukeyInput::Row5Col0 => self.pressed[5][6],
+            RukeyInput::Row5Col1 => self.pressed[5][5],
+            RukeyInput::Row5Col2 => self.pressed[5][4],
             RukeyInput::Row5Col3 => self.pressed[5][3],
-            RukeyInput::Row5Col4 => self.pressed[5][4],
-            RukeyInput::Row5Col9 => self.pressed[5][9],
-            RukeyInput::Row5Col10 => self.pressed[5][10],
-            RukeyInput::Row5Col11 => self.pressed[5][11],
-            RukeyInput::Row5Col12 => self.pressed[5][12],
-            RukeyInput::Row5Col13 => self.pressed[5][13],
+            RukeyInput::Row5Col4 => self.pressed[5][2],
+            RukeyInput::Row5Col9 => self.pressed[5][7],
+            RukeyInput::Row5Col10 => self.pressed[5][8],
+            RukeyInput::Row5Col11 => self.pressed[5][9],
+            RukeyInput::Row5Col12 => self.pressed[5][10],
+            RukeyInput::Row5Col13 => self.pressed[5][11],
         }
     }
 }
