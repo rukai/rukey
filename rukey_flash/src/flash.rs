@@ -1,4 +1,8 @@
-use std::io::{self, Write};
+use std::{
+    io::{self, Write},
+    thread::sleep,
+    time::Duration,
+};
 
 use crate::buffer_nor_flash::BufferNorFlash;
 use miette::{Result, miette};
@@ -30,11 +34,21 @@ pub fn flash_device(firmware: &[u8], config: WriteConfig) -> Result<()> {
         ));
     }
 
-    let ctx = Context::new().map_err(|e| miette!(e).context("could not initialize libusb"))?;
     // create connection object
     println!("Connecting to device");
-    let mut conn =
-        PicobootConnection::new(ctx, None).expect("failed to connect to PICOBOOT interface");
+    let mut looped = false;
+    let mut conn = loop {
+        let ctx = Context::new().map_err(|e| miette!(e).context("could not initialize libusb"))?;
+        match PicobootConnection::new(ctx, None) {
+            Ok(conn) => break conn,
+            Err(_) => {}
+        }
+        if !looped {
+            println!("Waiting for device to enter flash mode");
+        }
+        sleep(Duration::from_secs(2));
+        looped = true;
+    };
 
     conn.reset_interface().expect("failed to reset interface");
     conn.access_exclusive_eject()

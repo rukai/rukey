@@ -1,28 +1,10 @@
 # Rukey
 
-## rev 2
-
-WIP
-
-### TODO
-
-* 3DP
-  * Add a switch plate
-
-## Problems with rev 1
-
-Its completely broken..
-
-* idc socket collides with switches
-* TP* shorted on pico via plated through holes - very dangerous to the host
-* longest screw hole needs to be longer
-* longest screw hole on pcb is too close to the pico
-
 ## About
 
 This was designed quickly as my personal keyboard, I would like to make this a properly documented project that others can build but don't have the capacity at the moment.
 
-Used the sofle pico as a base but changed pretty much everything, in order to recreate the moonlander but with the goal of being a budget build.
+I used the sofle pico as a base but changed pretty much everything in order to recreate the moonlander but with the goal of being a budget build.
 
 ## BOM
 
@@ -40,7 +22,10 @@ Used the sofle pico as a base but changed pretty much everything, in order to re
 |1| printed left base|print with supports for the bridge, can be done with auto supports configured to 1 degree|
 |1| printed right base| same as above|
 |8| printed washers| |
-|8| m3 machine screws of various lengths|TODO: document actual sizes |
+|4| m3 machine screws - 25mm long||
+|2| m3 machine screws - 20mm long||
+|2| m3 machine screws - 14mm long||
+|2| m3 machine screws - 12mm long||
 |8| m3 square nuts| |
 |1| main PCB| |
 |1| thumb cluster PCB| |

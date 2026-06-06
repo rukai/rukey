@@ -114,7 +114,7 @@ pub struct PinRemapping {
     pub pin: u32,
 }
 
-pub const MAX_MAPPINGS: usize = 84;
+pub const MAX_MAPPINGS: usize = 100;
 pub const MAX_COMPUTER_INPUTS: usize = 5; // TODO: lets up this, using a more conservative number for now.
 #[derive(Serialize, Deserialize, Debug, PartialEq, Clone)]
 pub struct Profile {

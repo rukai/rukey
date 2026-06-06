@@ -10,19 +10,32 @@ profiles {
           // num keys
           - on-press : row0-col0 -> keyboard-media-previous-song
           - on-press : row0-col1 -> keyboard-top-row-1-exclamation
+          - on-press : row0-col1 + row2-col12 -> keyboard-f1
           - on-press : row0-col2 -> keyboard-top-row-2-at
+          - on-press : row0-col2 + row2-col12 -> keyboard-f2
           - on-press : row0-col3 -> keyboard-top-row-3-hash
+          - on-press : row0-col3 + row2-col12 -> keyboard-f3
           - on-press : row0-col4 -> keyboard-top-row-4-dollar
+          - on-press : row0-col4 + row2-col12 -> keyboard-f4
           - on-press : row0-col5 -> keyboard-top-row-5-percent
+          - on-press : row0-col5 + row2-col12 -> keyboard-f5
           - on-press : row0-col6 -> keyboard-left-windows + keyboard-enter
+          - on-press : row0-col6 + row2-col12 -> keyboard-f6
 
           - on-press : row0-col7 -> keyboard-left-shift + keyboard-insert
+          - on-press : row0-col7 + row2-col12 -> keyboard-f7
           - on-press : row0-col8 -> keyboard-top-row-6-caret
+          - on-press : row0-col8 + row2-col12 -> keyboard-f6
           - on-press : row0-col9 -> keyboard-top-row-7-ampersand
+          - on-press : row0-col9 + row2-col12 -> keyboard-f7
           - on-press : row0-col10 -> keyboard-top-row-8-asterisk
+          - on-press : row0-col10 + row2-col12 -> keyboard-f8
           - on-press : row0-col11 -> keyboard-top-row-9-open-parens
+          - on-press : row0-col11 + row2-col12 -> keyboard-f9
           - on-press : row0-col12 -> keyboard-top-row-0-close-parens
+          - on-press : row0-col12 + row2-col12 -> keyboard-f10
           - on-press : row0-col13 -> keyboard-media-next-song
+          - on-press : row0-col13 + row2-col12 -> keyboard-f11
 
           // qwer
           - on-press : row1-col0 -> keyboard-backtick-tilde
@@ -40,37 +53,51 @@ profiles {
           - on-press : row1-col11 -> keyboard-o
           - on-press : row1-col12 -> keyboard-p
           - on-press : row1-col13 -> keyboard-backslash-bar
+          - on-press : row1-col13 + row2-col12 -> keyboard-f12
 
           // asdf
           - on-press : row2-col0 -> keyboard-tab
           - on-press : row2-col1 -> keyboard-a
+          - on-press : row2-col1 + row2-col12 -> keyboard-left-shift + keyboard-open-bracket-brace
           - on-press : row2-col2 -> keyboard-s
+          - on-press : row2-col2 + row2-col12 -> keyboard-left-shift + keyboard-close-bracket-brace
           - on-press : row2-col3 -> keyboard-d
+          - on-press : row2-col3 + row2-col12 -> keyboard-left-shift + keyboard-top-row-9-open-parens
           - on-press : row2-col4 -> keyboard-f
+          - on-press : row2-col4 + row2-col12 -> keyboard-left-shift + keyboard-top-row-0-close-parens
           - on-press : row2-col5 -> keyboard-g
           - on-press : row2-col6 -> keyboard-equal-plus
 
           - on-press : row2-col7 -> keyboard-dash-underscore
           - on-press : row2-col8 -> keyboard-h
           - on-press : row2-col9 -> keyboard-j
+          - on-press : row2-col9 + row2-col12 -> keyboard-page-down
           - on-press : row2-col10 -> keyboard-k
+          - on-press : row2-col10 + row2-col12 -> keyboard-page-up
           - on-press : row2-col11 -> keyboard-l
-          - on-press : row2-col12 -> keyboard-semi-colon
+          - on-press : row2-col11 + row2-col12 -> keyboard-print-screen
+          - macro-on-tap 150 : row2-col12 -> keyboard-semi-colon
           - on-press : row2-col13 -> keyboard-single-double-quote
 
           // zxcv
           - on-press : row3-col0 -> keyboard-left-shift
-          - on-press : row3-col1 -> keyboard-z
+          - macro-on-tap 150 : row3-col1 -> keyboard-z
+          - on-hold 150 : row3-col1 -> keyboard-left-control
+          - on-press : row3-col1 + row2-col12 -> keyboard-left-shift + keyboard-comma-less-than
           - on-press : row3-col2 -> keyboard-x
+          - on-press : row3-col2 + row2-col12 -> keyboard-left-shift + keyboard-period-greater-than
           - on-press : row3-col3 -> keyboard-c
+          - on-press : row3-col3 + row2-col12 -> keyboard-open-bracket-brace
           - on-press : row3-col4 -> keyboard-v
+          - on-press : row3-col4 + row2-col12 -> keyboard-close-bracket-brace
           - on-press : row3-col5 -> keyboard-b
 
           - on-press : row3-col8 -> keyboard-n
           - on-press : row3-col9 -> keyboard-m
           - on-press : row3-col10 -> keyboard-comma-less-than
           - on-press : row3-col11 -> keyboard-period-greater-than
-          - on-press : row3-col12 -> keyboard-slash-question
+          - macro-on-tap 150 : row3-col12 -> keyboard-slash-question
+          - on-hold 150 : row3-col12 -> keyboard-right-control
           - on-press : row3-col13 -> keyboard-volume-up
 
           // bottom row
@@ -90,15 +117,21 @@ profiles {
           - on-press : row5-col0 -> keyboard-backspace
           - on-press : row5-col1 -> keyboard-spacebar
           - on-press : row5-col2 -> keyboard-left-windows
-          - on-press : row5-col3 -> keyboard-left-control + keyboard-left-shift + keyboard-spacebar
-          // - on-press : row5-col4 -> free key
+          - on-press : row5-col3 -> keyboard-left-control
+          - on-press : row5-col4 -> keyboard-left-alt
 
           // thumb cluster - right
-          //- on-press : row5-col9 -> free key
-          - on-press : row5-col10 -> keyboard-right-alt
+          // TODO: cleanup the naming, 2 rows per thumb cluster + seperate left/right halves
+          - on-press : row5-col9 -> keyboard-delete
+          - on-press : row5-col10 -> keyboard-enter
           - on-press : row5-col11 -> keyboard-escape
-          - on-press : row5-col12 -> keyboard-enter
-          - on-press : row5-col13 -> keyboard-delete
+          - on-press : row5-col12 -> keyboard-right-control
+          - on-press : row5-col13 -> keyboard-right-alt
+        //   - on-press : row5-col9 -> keyboard-right-alt
+        //   - on-press : row5-col10 -> keyboard-right-control
+        //   - on-press : row5-col11 -> keyboard-escape
+        //   - on-press : row5-col12 -> keyboard-enter
+        //   - on-press : row5-col13 -> keyboard-delete
         }
     }
 }
