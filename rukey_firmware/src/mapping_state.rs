@@ -34,6 +34,12 @@ impl MappingState {
     /// Process one tick for a single mapping.
     /// ControlFlow::Continue returns the modified MappingState
     /// ControlFlow::Break indicates that all mapping states are now invalid and need to be recreated.
+    ///
+    /// arguments:
+    /// * mapping: The mapping to be processed
+    /// * all_pressed: are all of the mappings inputs currently held?
+    /// * supressed: is the mapping supressed by another higher priority mapping?
+    /// * state to be modified
     pub async fn process(
         mut self,
         mapping: &Mapping,
@@ -51,184 +57,198 @@ impl MappingState {
     }
 
     async fn process_phase(&mut self, mapping: &Mapping, all_pressed: bool, suppressed: bool) {
-        // When suppressed by a more-specific mapping, cancel pending states without firing.
-        // We use a dedicated SuppressedHeld phase so that tap-style macros (which fire on
-        // HeldPending + released) are not accidentally triggered by the suppression itself.
-        if suppressed {
-            self.phase = match self.phase {
-                MappingPhase::HeldPending { .. }
-                | MappingPhase::DoubleTapGap { .. }
-                | MappingPhase::DoubleTapSecondPressed { .. } => MappingPhase::SuppressedHeld,
-                MappingPhase::Pressed => {
+        self.phase = match mapping.mode {
+            MappingMode::OnPress => match (self.phase, all_pressed, suppressed) {
+                (MappingPhase::Initial, false, _) => MappingPhase::Released,
+                (MappingPhase::Released, true, false) => {
+                    self.start_outputs();
+                    MappingPhase::Pressed
+                }
+                (MappingPhase::Pressed, false, false) => {
+                    self.stop_outputs(mapping).await;
+                    MappingPhase::Released
+                }
+                (MappingPhase::Pressed, _, true) => {
                     self.stop_outputs(mapping).await;
                     MappingPhase::SuppressedHeld
                 }
-                other => other,
-            };
-            return;
-        }
-
-        // Exit SuppressedHeld once suppression lifts and the key is physically released.
-        // Requiring a full release prevents the mapping from immediately re-firing while
-        // the key is still held after the combo partner was released.
-        if let MappingPhase::SuppressedHeld = self.phase {
-            if !all_pressed {
-                self.phase = MappingPhase::Released;
-            }
-            return;
-        }
-
-        self.phase = match mapping.mode {
-            MappingMode::OnPress => match (self.phase, all_pressed) {
-                (MappingPhase::Initial, false) => MappingPhase::Released,
-                (MappingPhase::Released, true) => {
-                    self.start_outputs();
-                    MappingPhase::Pressed
-                }
-                (MappingPhase::Pressed, false) => {
-                    self.stop_outputs(mapping).await;
-                    MappingPhase::Released
-                }
-                (other, _) => other,
+                (MappingPhase::SuppressedHeld, false, false) => MappingPhase::Released,
+                (other, _, _) => other,
             },
 
-            MappingMode::OnHold { hold_ms: threshold } => match (self.phase, all_pressed) {
-                (MappingPhase::Initial, false) => MappingPhase::Released,
-                (MappingPhase::Released, true) => MappingPhase::HeldPending {
-                    since: Instant::now(),
-                },
-                (MappingPhase::HeldPending { since }, true) => {
-                    if since.elapsed().as_millis() >= threshold as u64 {
-                        self.start_outputs();
-                        MappingPhase::Pressed
-                    } else {
-                        self.phase
+            MappingMode::OnHold { hold_ms: threshold } => {
+                match (self.phase, all_pressed, suppressed) {
+                    (MappingPhase::Initial, false, _) => MappingPhase::Released,
+                    (MappingPhase::Released, true, false) => MappingPhase::HeldPending {
+                        since: Instant::now(),
+                    },
+                    (MappingPhase::HeldPending { .. }, _, true) => MappingPhase::SuppressedHeld,
+                    (MappingPhase::HeldPending { since }, true, false) => {
+                        if since.elapsed().as_millis() >= threshold as u64 {
+                            self.start_outputs();
+                            MappingPhase::Pressed
+                        } else {
+                            self.phase
+                        }
                     }
+                    (MappingPhase::HeldPending { .. }, false, false) => MappingPhase::Released,
+                    (MappingPhase::Pressed, false, false) => {
+                        self.stop_outputs(mapping).await;
+                        MappingPhase::Released
+                    }
+                    (MappingPhase::Pressed, _, true) => {
+                        self.stop_outputs(mapping).await;
+                        MappingPhase::SuppressedHeld
+                    }
+                    (MappingPhase::SuppressedHeld, false, false) => MappingPhase::Released,
+                    (other, _, _) => other,
                 }
-                (MappingPhase::HeldPending { .. }, false) => MappingPhase::Released,
-                (MappingPhase::Pressed, false) => {
-                    self.stop_outputs(mapping).await;
-                    MappingPhase::Released
-                }
-                (other, _) => other,
-            },
+            }
 
-            MappingMode::Toggle => match (self.phase, all_pressed) {
-                (MappingPhase::Initial, false) => MappingPhase::Released,
-                (MappingPhase::Released, true) => {
+            MappingMode::Toggle => match (self.phase, all_pressed, suppressed) {
+                (MappingPhase::Initial, false, _) => MappingPhase::Released,
+                (MappingPhase::Released, true, false) => {
                     self.start_outputs();
                     MappingPhase::ToggleOnAwaitingRelease
                 }
-                (MappingPhase::ToggleOnAwaitingRelease, false) => MappingPhase::Pressed,
-                (MappingPhase::Pressed, true) => {
+                (MappingPhase::ToggleOnAwaitingRelease, false, false) => MappingPhase::Pressed,
+                (MappingPhase::ToggleOnAwaitingRelease, _, true) => {
+                    self.stop_outputs(mapping).await;
+                    MappingPhase::SuppressedHeld
+                }
+                (MappingPhase::Pressed, true, false) => {
                     self.stop_outputs(mapping).await;
                     MappingPhase::AwaitingRelease
                 }
-                (MappingPhase::AwaitingRelease, false) => MappingPhase::Released,
-                (other, _) => other,
+                (MappingPhase::AwaitingRelease, false, _) => MappingPhase::Released,
+                (MappingPhase::SuppressedHeld, false, false) => MappingPhase::Released,
+                (other, _, _) => other,
             },
 
-            MappingMode::MacroOnPress => match (self.phase, all_pressed) {
-                (MappingPhase::Initial, false) => MappingPhase::Released,
-                (MappingPhase::Released, true) => {
+            MappingMode::MacroOnPress => match (self.phase, all_pressed, suppressed) {
+                (MappingPhase::Initial, false, _) => MappingPhase::Released,
+                (MappingPhase::Released, true, false) => {
                     self.start_outputs();
                     MappingPhase::Pressed
                 }
-                (MappingPhase::Pressed, false) => MappingPhase::Released,
-                (other, _) => other,
+                (MappingPhase::Pressed, false, false) => MappingPhase::Released,
+                (MappingPhase::Pressed, _, true) => {
+                    self.stop_outputs(mapping).await;
+                    MappingPhase::SuppressedHeld
+                }
+                (MappingPhase::SuppressedHeld, false, false) => MappingPhase::Released,
+                (other, _, _) => other,
             },
 
-            MappingMode::MacroOnRelease => match (self.phase, all_pressed) {
-                (MappingPhase::Initial, false) => MappingPhase::Released,
-                (MappingPhase::Released, true) => MappingPhase::Pressed,
-                (MappingPhase::Pressed, false) => {
+            MappingMode::MacroOnRelease => match (self.phase, all_pressed, suppressed) {
+                (MappingPhase::Initial, false, _) => MappingPhase::Released,
+                (MappingPhase::Released, true, false) => MappingPhase::Pressed,
+                (MappingPhase::Pressed, false, false) => {
                     self.start_outputs();
                     MappingPhase::Released
                 }
-                (other, _) => other,
+                (MappingPhase::Pressed, _, true) => MappingPhase::SuppressedHeld,
+                (MappingPhase::SuppressedHeld, false, false) => MappingPhase::Released,
+                (other, _, _) => other,
             },
 
-            MappingMode::MacroOnTap { tap_ms: threshold } => match (self.phase, all_pressed) {
-                (MappingPhase::Initial, false) => MappingPhase::Released,
-                (MappingPhase::Released, true) => MappingPhase::HeldPending {
-                    since: Instant::now(),
-                },
-                (MappingPhase::HeldPending { since }, true) => {
-                    if since.elapsed().as_millis() >= threshold as u64 {
-                        MappingPhase::AwaitingRelease
-                    } else {
-                        self.phase
-                    }
-                }
-                (MappingPhase::HeldPending { .. }, false) => {
-                    self.start_outputs();
-                    MappingPhase::Released
-                }
-                (MappingPhase::AwaitingRelease, false) => MappingPhase::Released,
-                (other, _) => other,
-            },
-
-            MappingMode::MacroOnDoubleTap { tap_ms: threshold } => {
-                match (self.phase, all_pressed) {
-                    (MappingPhase::Initial, false) => MappingPhase::Released,
-                    (MappingPhase::Released, true) => MappingPhase::HeldPending {
+            MappingMode::MacroOnTap { tap_ms: threshold } => {
+                match (self.phase, all_pressed, suppressed) {
+                    (MappingPhase::Initial, false, _) => MappingPhase::Released,
+                    (MappingPhase::Released, true, false) => MappingPhase::HeldPending {
                         since: Instant::now(),
                     },
-                    (MappingPhase::HeldPending { since }, true) => {
+                    (MappingPhase::HeldPending { .. }, _, true) => MappingPhase::SuppressedHeld,
+                    (MappingPhase::HeldPending { since }, true, false) => {
                         if since.elapsed().as_millis() >= threshold as u64 {
                             MappingPhase::AwaitingRelease
                         } else {
                             self.phase
                         }
                     }
-                    (MappingPhase::HeldPending { .. }, false) => MappingPhase::DoubleTapGap {
+                    (MappingPhase::HeldPending { .. }, false, false) => {
+                        self.start_outputs();
+                        MappingPhase::Released
+                    }
+                    (MappingPhase::AwaitingRelease, false, _) => MappingPhase::Released,
+                    (MappingPhase::SuppressedHeld, false, false) => MappingPhase::Released,
+                    (other, _, _) => other,
+                }
+            }
+
+            MappingMode::MacroOnDoubleTap { tap_ms: threshold } => {
+                match (self.phase, all_pressed, suppressed) {
+                    (MappingPhase::Initial, false, _) => MappingPhase::Released,
+                    (MappingPhase::Released, true, false) => MappingPhase::HeldPending {
                         since: Instant::now(),
                     },
-                    (MappingPhase::DoubleTapGap { since }, false) => {
+                    (MappingPhase::HeldPending { .. }, _, true) => MappingPhase::SuppressedHeld,
+                    (MappingPhase::HeldPending { since }, true, false) => {
+                        if since.elapsed().as_millis() >= threshold as u64 {
+                            MappingPhase::AwaitingRelease
+                        } else {
+                            self.phase
+                        }
+                    }
+                    (MappingPhase::HeldPending { .. }, false, false) => {
+                        MappingPhase::DoubleTapGap {
+                            since: Instant::now(),
+                        }
+                    }
+                    (MappingPhase::DoubleTapGap { .. }, _, true) => MappingPhase::SuppressedHeld,
+                    (MappingPhase::DoubleTapGap { since }, false, false) => {
                         if since.elapsed().as_millis() >= threshold as u64 {
                             MappingPhase::Released
                         } else {
                             self.phase
                         }
                     }
-                    (MappingPhase::DoubleTapGap { .. }, true) => {
+                    (MappingPhase::DoubleTapGap { .. }, true, false) => {
                         MappingPhase::DoubleTapSecondPressed {
                             since: Instant::now(),
                         }
                     }
-                    (MappingPhase::DoubleTapSecondPressed { since }, true) => {
+                    (MappingPhase::DoubleTapSecondPressed { .. }, _, true) => {
+                        MappingPhase::SuppressedHeld
+                    }
+                    (MappingPhase::DoubleTapSecondPressed { since }, true, false) => {
                         if since.elapsed().as_millis() >= threshold as u64 {
                             MappingPhase::AwaitingRelease
                         } else {
                             self.phase
                         }
                     }
-                    (MappingPhase::DoubleTapSecondPressed { .. }, false) => {
+                    (MappingPhase::DoubleTapSecondPressed { .. }, false, false) => {
                         self.start_outputs();
                         MappingPhase::Released
                     }
-                    (MappingPhase::AwaitingRelease, false) => MappingPhase::Released,
-                    (other, _) => other,
+                    (MappingPhase::AwaitingRelease, false, _) => MappingPhase::Released,
+                    (MappingPhase::SuppressedHeld, false, false) => MappingPhase::Released,
+                    (other, _, _) => other,
                 }
             }
 
-            MappingMode::MacroOnHold { hold_ms: threshold } => match (self.phase, all_pressed) {
-                (MappingPhase::Initial, false) => MappingPhase::Released,
-                (MappingPhase::Released, true) => MappingPhase::HeldPending {
-                    since: Instant::now(),
-                },
-                (MappingPhase::HeldPending { since }, true) => {
-                    if since.elapsed().as_millis() >= threshold as u64 {
-                        self.start_outputs();
-                        MappingPhase::AwaitingRelease
-                    } else {
-                        self.phase
+            MappingMode::MacroOnHold { hold_ms: threshold } => {
+                match (self.phase, all_pressed, suppressed) {
+                    (MappingPhase::Initial, false, _) => MappingPhase::Released,
+                    (MappingPhase::Released, true, false) => MappingPhase::HeldPending {
+                        since: Instant::now(),
+                    },
+                    (MappingPhase::HeldPending { .. }, _, true) => MappingPhase::SuppressedHeld,
+                    (MappingPhase::HeldPending { since }, true, false) => {
+                        if since.elapsed().as_millis() >= threshold as u64 {
+                            self.start_outputs();
+                            MappingPhase::AwaitingRelease
+                        } else {
+                            self.phase
+                        }
                     }
+                    (MappingPhase::HeldPending { .. }, false, false) => MappingPhase::Released,
+                    (MappingPhase::AwaitingRelease, false, _) => MappingPhase::Released,
+                    (MappingPhase::SuppressedHeld, false, false) => MappingPhase::Released,
+                    (other, _, _) => other,
                 }
-                (MappingPhase::HeldPending { .. }, false) => MappingPhase::Released,
-                (MappingPhase::AwaitingRelease, false) => MappingPhase::Released,
-                (other, _) => other,
-            },
+            }
         };
     }
 
