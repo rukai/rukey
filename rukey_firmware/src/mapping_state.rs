@@ -70,9 +70,8 @@ impl MappingState {
                 }
                 (MappingPhase::Pressed, _, true) => {
                     self.stop_outputs(mapping).await;
-                    MappingPhase::SuppressedHeld
+                    MappingPhase::Initial
                 }
-                (MappingPhase::SuppressedHeld, false, false) => MappingPhase::Released,
                 (other, _, _) => other,
             },
 
@@ -82,7 +81,7 @@ impl MappingState {
                     (MappingPhase::Released, true, false) => MappingPhase::HeldPending {
                         since: Instant::now(),
                     },
-                    (MappingPhase::HeldPending { .. }, _, true) => MappingPhase::SuppressedHeld,
+                    (MappingPhase::HeldPending { .. }, _, true) => MappingPhase::Initial,
                     (MappingPhase::HeldPending { since }, true, false) => {
                         if since.elapsed().as_millis() >= threshold as u64 {
                             self.start_outputs();
@@ -98,9 +97,8 @@ impl MappingState {
                     }
                     (MappingPhase::Pressed, _, true) => {
                         self.stop_outputs(mapping).await;
-                        MappingPhase::SuppressedHeld
+                        MappingPhase::Initial
                     }
-                    (MappingPhase::SuppressedHeld, false, false) => MappingPhase::Released,
                     (other, _, _) => other,
                 }
             }
@@ -114,14 +112,13 @@ impl MappingState {
                 (MappingPhase::ToggleOnAwaitingRelease, false, false) => MappingPhase::Pressed,
                 (MappingPhase::ToggleOnAwaitingRelease, _, true) => {
                     self.stop_outputs(mapping).await;
-                    MappingPhase::SuppressedHeld
+                    MappingPhase::Initial
                 }
                 (MappingPhase::Pressed, true, false) => {
                     self.stop_outputs(mapping).await;
                     MappingPhase::AwaitingRelease
                 }
                 (MappingPhase::AwaitingRelease, false, _) => MappingPhase::Released,
-                (MappingPhase::SuppressedHeld, false, false) => MappingPhase::Released,
                 (other, _, _) => other,
             },
 
@@ -134,9 +131,8 @@ impl MappingState {
                 (MappingPhase::Pressed, false, false) => MappingPhase::Released,
                 (MappingPhase::Pressed, _, true) => {
                     self.stop_outputs(mapping).await;
-                    MappingPhase::SuppressedHeld
+                    MappingPhase::Initial
                 }
-                (MappingPhase::SuppressedHeld, false, false) => MappingPhase::Released,
                 (other, _, _) => other,
             },
 
@@ -147,8 +143,7 @@ impl MappingState {
                     self.start_outputs();
                     MappingPhase::Released
                 }
-                (MappingPhase::Pressed, _, true) => MappingPhase::SuppressedHeld,
-                (MappingPhase::SuppressedHeld, false, false) => MappingPhase::Released,
+                (MappingPhase::Pressed, _, true) => MappingPhase::Initial,
                 (other, _, _) => other,
             },
 
@@ -158,7 +153,7 @@ impl MappingState {
                     (MappingPhase::Released, true, false) => MappingPhase::HeldPending {
                         since: Instant::now(),
                     },
-                    (MappingPhase::HeldPending { .. }, _, true) => MappingPhase::SuppressedHeld,
+                    (MappingPhase::HeldPending { .. }, _, true) => MappingPhase::Initial,
                     (MappingPhase::HeldPending { since }, true, false) => {
                         if since.elapsed().as_millis() >= threshold as u64 {
                             MappingPhase::AwaitingRelease
@@ -171,7 +166,6 @@ impl MappingState {
                         MappingPhase::Released
                     }
                     (MappingPhase::AwaitingRelease, false, _) => MappingPhase::Released,
-                    (MappingPhase::SuppressedHeld, false, false) => MappingPhase::Released,
                     (other, _, _) => other,
                 }
             }
@@ -182,7 +176,7 @@ impl MappingState {
                     (MappingPhase::Released, true, false) => MappingPhase::HeldPending {
                         since: Instant::now(),
                     },
-                    (MappingPhase::HeldPending { .. }, _, true) => MappingPhase::SuppressedHeld,
+                    (MappingPhase::HeldPending { .. }, _, true) => MappingPhase::Initial,
                     (MappingPhase::HeldPending { since }, true, false) => {
                         if since.elapsed().as_millis() >= threshold as u64 {
                             MappingPhase::AwaitingRelease
@@ -195,7 +189,7 @@ impl MappingState {
                             since: Instant::now(),
                         }
                     }
-                    (MappingPhase::DoubleTapGap { .. }, _, true) => MappingPhase::SuppressedHeld,
+                    (MappingPhase::DoubleTapGap { .. }, _, true) => MappingPhase::Initial,
                     (MappingPhase::DoubleTapGap { since }, false, false) => {
                         if since.elapsed().as_millis() >= threshold as u64 {
                             MappingPhase::Released
@@ -208,9 +202,7 @@ impl MappingState {
                             since: Instant::now(),
                         }
                     }
-                    (MappingPhase::DoubleTapSecondPressed { .. }, _, true) => {
-                        MappingPhase::SuppressedHeld
-                    }
+                    (MappingPhase::DoubleTapSecondPressed { .. }, _, true) => MappingPhase::Initial,
                     (MappingPhase::DoubleTapSecondPressed { since }, true, false) => {
                         if since.elapsed().as_millis() >= threshold as u64 {
                             MappingPhase::AwaitingRelease
@@ -223,7 +215,6 @@ impl MappingState {
                         MappingPhase::Released
                     }
                     (MappingPhase::AwaitingRelease, false, _) => MappingPhase::Released,
-                    (MappingPhase::SuppressedHeld, false, false) => MappingPhase::Released,
                     (other, _, _) => other,
                 }
             }
@@ -234,7 +225,7 @@ impl MappingState {
                     (MappingPhase::Released, true, false) => MappingPhase::HeldPending {
                         since: Instant::now(),
                     },
-                    (MappingPhase::HeldPending { .. }, _, true) => MappingPhase::SuppressedHeld,
+                    (MappingPhase::HeldPending { .. }, _, true) => MappingPhase::Initial,
                     (MappingPhase::HeldPending { since }, true, false) => {
                         if since.elapsed().as_millis() >= threshold as u64 {
                             self.start_outputs();
@@ -245,7 +236,6 @@ impl MappingState {
                     }
                     (MappingPhase::HeldPending { .. }, false, false) => MappingPhase::Released,
                     (MappingPhase::AwaitingRelease, false, _) => MappingPhase::Released,
-                    (MappingPhase::SuppressedHeld, false, false) => MappingPhase::Released,
                     (other, _, _) => other,
                 }
             }
@@ -371,14 +361,14 @@ impl MappingState {
 
 #[derive(Clone, Copy)]
 enum MappingPhase {
-    /// Initial state on construction.
-    /// Waits for any held button to be released before allowing the mapping to activate.
-    /// Never re-entered after leaving.
+    /// Waits for the physical key(s) to be fully released before allowing the mapping to activate.
     ///
-    /// This initial state is required to avoid the scenario where:
-    ///   profile 0: OnPress - left button -> SetProfile
-    ///   profile 1: OnPress - left button -> A
-    /// results in the profile changing and A being output from a single left button press
+    /// Entered on construction, and re-entered when a more-specific combo mapping suppresses
+    /// this one mid-hold. In both cases the invariant is the same: don't activate until the
+    /// user performs a clean press from a fully-released state.
+    ///
+    /// Without this state, a profile-switch mapping and the first mapping in the new profile
+    /// sharing the same key would both fire from a single press.
     Initial,
     /// The input is currently considered released.
     Released,
@@ -394,7 +384,4 @@ enum MappingPhase {
     DoubleTapGap { since: Instant },
     /// DoubleTap: second press, awaiting second release to fire.
     DoubleTapSecondPressed { since: Instant },
-    /// This mapping was cancelled mid-hold by a more-specific combo mapping.
-    /// Waits for the physical key to be released before returning to Released.
-    SuppressedHeld,
 }
