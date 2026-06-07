@@ -38,10 +38,11 @@ impl MappingState {
         mut self,
         mapping: &Mapping,
         all_pressed: bool,
+        suppressed: bool,
         state: &mut State,
     ) -> ControlFlow<(), MappingState> {
         // progress the phase state machine
-        self.process_phase(mapping, all_pressed).await;
+        self.process_phase(mapping, all_pressed, suppressed).await;
 
         // output sequences are run independently of the phase state machine
         self.process_output_sequence(mapping, state).await?;
@@ -49,7 +50,34 @@ impl MappingState {
         ControlFlow::Continue(self)
     }
 
-    async fn process_phase(&mut self, mapping: &Mapping, all_pressed: bool) {
+    async fn process_phase(&mut self, mapping: &Mapping, all_pressed: bool, suppressed: bool) {
+        // When suppressed by a more-specific mapping, cancel pending states without firing.
+        // We use a dedicated SuppressedHeld phase so that tap-style macros (which fire on
+        // HeldPending + released) are not accidentally triggered by the suppression itself.
+        if suppressed {
+            self.phase = match self.phase {
+                MappingPhase::HeldPending { .. }
+                | MappingPhase::DoubleTapGap { .. }
+                | MappingPhase::DoubleTapSecondPressed { .. } => MappingPhase::SuppressedHeld,
+                MappingPhase::Pressed => {
+                    self.stop_outputs(mapping).await;
+                    MappingPhase::SuppressedHeld
+                }
+                other => other,
+            };
+            return;
+        }
+
+        // Exit SuppressedHeld once suppression lifts and the key is physically released.
+        // Requiring a full release prevents the mapping from immediately re-firing while
+        // the key is still held after the combo partner was released.
+        if let MappingPhase::SuppressedHeld = self.phase {
+            if !all_pressed {
+                self.phase = MappingPhase::Released;
+            }
+            return;
+        }
+
         self.phase = match mapping.mode {
             MappingMode::OnPress => match (self.phase, all_pressed) {
                 (MappingPhase::Initial, false) => MappingPhase::Released,
@@ -346,4 +374,7 @@ enum MappingPhase {
     DoubleTapGap { since: Instant },
     /// DoubleTap: second press, awaiting second release to fire.
     DoubleTapSecondPressed { since: Instant },
+    /// This mapping was cancelled mid-hold by a more-specific combo mapping.
+    /// Waits for the physical key to be released before returning to Released.
+    SuppressedHeld,
 }

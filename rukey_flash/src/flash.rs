@@ -39,9 +39,8 @@ pub fn flash_device(firmware: &[u8], config: WriteConfig) -> Result<()> {
     let mut looped = false;
     let mut conn = loop {
         let ctx = Context::new().map_err(|e| miette!(e).context("could not initialize libusb"))?;
-        match PicobootConnection::new(ctx, None) {
-            Ok(conn) => break conn,
-            Err(_) => {}
+        if let Ok(conn) = PicobootConnection::new(ctx, None) {
+            break conn;
         }
         if !looped {
             println!("Waiting for device to enter flash mode");

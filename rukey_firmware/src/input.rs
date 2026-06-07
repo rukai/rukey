@@ -124,10 +124,32 @@ impl Inputs {
                 }
             }
 
+            let mut all_pressed_arr: [bool; MAX_MAPPINGS] = [false; MAX_MAPPINGS];
+            for (mapping, e) in current_profile
+                .mappings
+                .iter()
+                .zip(all_pressed_arr.iter_mut())
+            {
+                *e = input_state.is_all_pressed(&mapping.input_set);
+            }
+
             for (i, mapping) in current_profile.mappings.iter().enumerate() {
-                let all_pressed = input_state.is_all_pressed(&mapping.input_set);
+                let suppressed = all_pressed_arr[i]
+                    && current_profile
+                        .mappings
+                        .iter()
+                        .enumerate()
+                        .any(|(j, other)| {
+                            j != i
+                                && all_pressed_arr[j]
+                                && other.input_set.len() > mapping.input_set.len()
+                                && mapping
+                                    .input_set
+                                    .iter()
+                                    .all(|k| other.input_set.contains(k))
+                        });
                 state.mapping_states[i] = match state.mapping_states[i]
-                    .process(mapping, all_pressed, &mut state)
+                    .process(mapping, all_pressed_arr[i], suppressed, &mut state)
                     .await
                 {
                     ControlFlow::Continue(ms) => ms,
