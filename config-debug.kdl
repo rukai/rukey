@@ -11,97 +11,97 @@ profiles {
     - {
         mappings {
           // num keys
-          - on-press : row0-col0 -> keyboard-a
-          - on-press : row0-col1 -> keyboard-b
-          - on-press : row0-col2 -> keyboard-c
-          - on-press : row0-col3 -> keyboard-d
-          - on-press : row0-col4 -> keyboard-e
-          - on-press : row0-col5 -> keyboard-f
-          - on-press : row0-col6 -> keyboard-g
+          - on-press : left-row0-col0 -> keyboard-a
+          - on-press : left-row0-col1 -> keyboard-b
+          - on-press : left-row0-col2 -> keyboard-c
+          - on-press : left-row0-col3 -> keyboard-d
+          - on-press : left-row0-col4 -> keyboard-e
+          - on-press : left-row0-col5 -> keyboard-f
+          - on-press : left-row0-col6 -> keyboard-g
 
-          - on-press : row0-col7 -> keyboard-a
-          - on-press : row0-col8 -> keyboard-b
-          - on-press : row0-col9 -> keyboard-c
-          - on-press : row0-col10 -> keyboard-d
-          - on-press : row0-col11 -> keyboard-e
-          - on-press : row0-col12 -> keyboard-f
-          - on-press : row0-col13 -> keyboard-h
+          - on-press : right-row0-col6 -> keyboard-a
+          - on-press : right-row0-col5 -> keyboard-b
+          - on-press : right-row0-col4 -> keyboard-c
+          - on-press : right-row0-col3 -> keyboard-d
+          - on-press : right-row0-col2 -> keyboard-e
+          - on-press : right-row0-col1 -> keyboard-f
+          - on-press : right-row0-col0 -> keyboard-h
 
           // qwer
-          - on-press : row1-col0 -> keyboard-h
-          - on-press : row1-col1 -> keyboard-i
-          - on-press : row1-col2 -> keyboard-j
-          - on-press : row1-col3 -> keyboard-k
-          - on-press : row1-col4 -> keyboard-l
-          - on-press : row1-col5 -> keyboard-m
-          - on-press : row1-col6 -> keyboard-n
+          - on-press : left-row1-col0 -> keyboard-h
+          - on-press : left-row1-col1 -> keyboard-i
+          - on-press : left-row1-col2 -> keyboard-j
+          - on-press : left-row1-col3 -> keyboard-k
+          - on-press : left-row1-col4 -> keyboard-l
+          - on-press : left-row1-col5 -> keyboard-m
+          - on-press : left-row1-col6 -> keyboard-n
 
-          - on-press : row1-col7 -> keyboard-h
-          - on-press : row1-col8 -> keyboard-i
-          - on-press : row1-col9 -> keyboard-j
-          - on-press : row1-col10 -> keyboard-k
-          - on-press : row1-col11 -> keyboard-l
-          - on-press : row1-col12 -> keyboard-m
-          - on-press : row1-col13 -> keyboard-n
+          - on-press : right-row1-col6 -> keyboard-h
+          - on-press : right-row1-col5 -> keyboard-i
+          - on-press : right-row1-col4 -> keyboard-j
+          - on-press : right-row1-col3 -> keyboard-k
+          - on-press : right-row1-col2 -> keyboard-l
+          - on-press : right-row1-col1 -> keyboard-m
+          - on-press : right-row1-col0 -> keyboard-n
 
           // asdf
-          - on-press : row2-col0 -> keyboard-o
-          - on-press : row2-col1 -> keyboard-p
-          - on-press : row2-col2 -> keyboard-q
-          - on-press : row2-col3 -> keyboard-r
-          - on-press : row2-col4 -> keyboard-s
-          - on-press : row2-col5 -> keyboard-t
-          - on-press : row2-col6 -> keyboard-u
+          - on-press : left-row2-col0 -> keyboard-o
+          - on-press : left-row2-col1 -> keyboard-p
+          - on-press : left-row2-col2 -> keyboard-q
+          - on-press : left-row2-col3 -> keyboard-r
+          - on-press : left-row2-col4 -> keyboard-s
+          - on-press : left-row2-col5 -> keyboard-t
+          - on-press : left-row2-col6 -> keyboard-u
 
-          - on-press : row2-col7 -> keyboard-o
-          - on-press : row2-col8 -> keyboard-p
-          - on-press : row2-col9 -> keyboard-q
-          - on-press : row2-col10 -> keyboard-r
-          - on-press : row2-col11 -> keyboard-s
-          - on-press : row2-col12 -> keyboard-t
-          - on-press : row2-col13 -> keyboard-u
+          - on-press : right-row2-col6 -> keyboard-o
+          - on-press : right-row2-col5 -> keyboard-p
+          - on-press : right-row2-col4 -> keyboard-q
+          - on-press : right-row2-col3 -> keyboard-r
+          - on-press : right-row2-col2 -> keyboard-s
+          - on-press : right-row2-col1 -> keyboard-t
+          - on-press : right-row2-col0 -> keyboard-u
 
           // zxcv
-          - on-press : row3-col0 -> keyboard-a
-          - on-press : row3-col1 -> keyboard-b
-          - on-press : row3-col2 -> keyboard-c
-          - on-press : row3-col3 -> keyboard-d
-          - on-press : row3-col4 -> keyboard-e
-          - on-press : row3-col5 -> keyboard-f
+          - on-press : left-row3-col0 -> keyboard-a
+          - on-press : left-row3-col1 -> keyboard-b
+          - on-press : left-row3-col2 -> keyboard-c
+          - on-press : left-row3-col3 -> keyboard-d
+          - on-press : left-row3-col4 -> keyboard-e
+          - on-press : left-row3-col5 -> keyboard-f
 
-          - on-press : row3-col8 -> keyboard-a
-          - on-press : row3-col9 -> keyboard-b
-          - on-press : row3-col10 -> keyboard-c
-          - on-press : row3-col11 -> keyboard-d
-          - on-press : row3-col12 -> keyboard-e
-          - on-press : row3-col13 -> keyboard-f
+          - on-press : right-row3-col5 -> keyboard-a
+          - on-press : right-row3-col4 -> keyboard-b
+          - on-press : right-row3-col3 -> keyboard-c
+          - on-press : right-row3-col2 -> keyboard-d
+          - on-press : right-row3-col1 -> keyboard-e
+          - on-press : right-row3-col0 -> keyboard-f
 
           // bottom row
-          - on-press : row4-col0 -> keyboard-h
-          - on-press : row4-col1 -> keyboard-i
-          - on-press : row4-col2 -> keyboard-j
-          - on-press : row4-col3 -> keyboard-k
-          - on-press : row4-col4 -> keyboard-l
+          - on-press : left-row4-col0 -> keyboard-h
+          - on-press : left-row4-col1 -> keyboard-i
+          - on-press : left-row4-col2 -> keyboard-j
+          - on-press : left-row4-col3 -> keyboard-k
+          - on-press : left-row4-col4 -> keyboard-l
 
-          - on-press : row4-col9 -> keyboard-h
-          - on-press : row4-col10 -> keyboard-i
-          - on-press : row4-col11 -> keyboard-j
-          - on-press : row4-col12 -> keyboard-k
-          - on-press : row4-col13 -> keyboard-l
+          - on-press : right-row4-col4 -> keyboard-h
+          - on-press : right-row4-col3 -> keyboard-i
+          - on-press : right-row4-col2 -> keyboard-j
+          - on-press : right-row4-col1 -> keyboard-k
+          - on-press : right-row4-col0 -> keyboard-l
 
           // thumb cluster - left
-          - on-press : row5-col0 -> keyboard-a
-          - on-press : row5-col1 -> keyboard-b
-          - on-press : row5-col2 -> keyboard-c
-          - on-press : row5-col3 -> keyboard-d
-          - on-press : row5-col4 -> keyboard-e
+          - on-press : left-row5-col0 -> keyboard-a
+          - on-press : left-row5-col1 -> keyboard-b
+          - on-press : left-row5-col2 -> keyboard-c
+          - on-press : left-row5-col3 -> keyboard-d
+          - on-press : left-row5-col4 -> keyboard-e
 
           // thumb cluster - right
-          - on-press : row5-col9 -> keyboard-a
-          - on-press : row5-col10 -> keyboard-b
-          - on-press : row5-col11 -> keyboard-c
-          - on-press : row5-col12 -> keyboard-d
-          - on-press : row5-col13 -> keyboard-e
+          - on-press : right-row5-col4 -> keyboard-a
+          - on-press : right-row5-col3 -> keyboard-b
+          - on-press : right-row5-col2 -> keyboard-c
+          - on-press : right-row5-col1 -> keyboard-d
+          - on-press : right-row5-col0 -> keyboard-e
         }
     }
 }
