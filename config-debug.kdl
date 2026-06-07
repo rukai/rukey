@@ -90,18 +90,18 @@ profiles {
           - on-press : right-row4-col0 -> keyboard-l
 
           // thumb cluster - left
-          - on-press : left-row5-col0 -> keyboard-a
-          - on-press : left-row5-col1 -> keyboard-b
-          - on-press : left-row5-col2 -> keyboard-c
-          - on-press : left-row5-col3 -> keyboard-d
-          - on-press : left-row5-col4 -> keyboard-e
+          - on-press : left-thumb-row0-col0 -> keyboard-a
+          - on-press : left-thumb-row0-col1 -> keyboard-b
+          - on-press : left-thumb-row1-col0 -> keyboard-c
+          - on-press : left-thumb-row1-col1 -> keyboard-d
+          - on-press : left-thumb-row1-col2 -> keyboard-e
 
           // thumb cluster - right
-          - on-press : right-row5-col4 -> keyboard-a
-          - on-press : right-row5-col3 -> keyboard-b
-          - on-press : right-row5-col2 -> keyboard-c
-          - on-press : right-row5-col1 -> keyboard-d
-          - on-press : right-row5-col0 -> keyboard-e
+          - on-press : right-thumb-row0-col0 -> keyboard-a
+          - on-press : right-thumb-row0-col1 -> keyboard-b
+          - on-press : right-thumb-row1-col0 -> keyboard-c
+          - on-press : right-thumb-row1-col1 -> keyboard-d
+          - on-press : right-thumb-row1-col2 -> keyboard-e
         }
     }
 }

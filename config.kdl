@@ -114,23 +114,18 @@ profiles {
           - on-press : right-row4-col0 -> keyboard-volume-down
 
           // thumb cluster - left
-          - on-press : left-row5-col0 -> keyboard-backspace
-          - on-press : left-row5-col1 -> keyboard-spacebar
-          - on-press : left-row5-col2 -> keyboard-left-windows
-          - on-press : left-row5-col3 -> keyboard-left-control
-          - on-press : left-row5-col4 -> keyboard-left-alt
+          - on-press : left-thumb-row0-col0 -> keyboard-backspace
+          - on-press : left-thumb-row0-col1 -> keyboard-left-alt
+          - on-press : left-thumb-row1-col0 -> keyboard-spacebar
+          - on-press : left-thumb-row1-col1 -> keyboard-left-windows
+          - on-press : left-thumb-row1-col2 -> keyboard-left-control
 
           // thumb cluster - right
-          - on-press : right-row5-col4 -> keyboard-delete
-          - on-press : right-row5-col3 -> keyboard-enter
-          - on-press : right-row5-col2 -> keyboard-escape
-          - on-press : right-row5-col1 -> keyboard-right-control
-          - on-press : right-row5-col0 -> keyboard-right-alt
-        //   - on-press : right-row5-col4 -> keyboard-right-alt
-        //   - on-press : right-row5-col3 -> keyboard-right-control
-        //   - on-press : right-row5-col2 -> keyboard-escape
-        //   - on-press : right-row5-col1 -> keyboard-enter
-        //   - on-press : right-row5-col0 -> keyboard-delete
+          - on-press : right-thumb-row0-col0 -> keyboard-delete
+          - on-press : right-thumb-row0-col1 -> keyboard-right-alt
+          - on-press : right-thumb-row1-col0 -> keyboard-enter
+          - on-press : right-thumb-row1-col1 -> keyboard-escape
+          - on-press : right-thumb-row1-col2 -> keyboard-right-control
         }
     }
 }
