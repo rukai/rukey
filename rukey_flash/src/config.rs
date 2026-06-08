@@ -407,80 +407,80 @@ fn test_keyboard_from_string_kebab() {
 #[kdl_config_finalize_into = "rukey_config::RukeyInput"]
 pub enum RukeyInputKdl {
     #[default]
-    Row0Col0,
-    Row0Col1,
-    Row0Col2,
-    Row0Col3,
-    Row0Col4,
-    Row0Col5,
-    Row0Col6,
-    Row0Col7,
-    Row0Col8,
-    Row0Col9,
-    Row0Col10,
-    Row0Col11,
-    Row0Col12,
-    Row0Col13,
-    Row1Col0,
-    Row1Col1,
-    Row1Col2,
-    Row1Col3,
-    Row1Col4,
-    Row1Col5,
-    Row1Col6,
-    Row1Col7,
-    Row1Col8,
-    Row1Col9,
-    Row1Col10,
-    Row1Col11,
-    Row1Col12,
-    Row1Col13,
-    Row2Col0,
-    Row2Col1,
-    Row2Col2,
-    Row2Col3,
-    Row2Col4,
-    Row2Col5,
-    Row2Col6,
-    Row2Col7,
-    Row2Col8,
-    Row2Col9,
-    Row2Col10,
-    Row2Col11,
-    Row2Col12,
-    Row2Col13,
-    Row3Col0,
-    Row3Col1,
-    Row3Col2,
-    Row3Col3,
-    Row3Col4,
-    Row3Col5,
-    Row3Col8,
-    Row3Col9,
-    Row3Col10,
-    Row3Col11,
-    Row3Col12,
-    Row3Col13,
-    Row4Col0,
-    Row4Col1,
-    Row4Col2,
-    Row4Col3,
-    Row4Col4,
-    Row4Col9,
-    Row4Col10,
-    Row4Col11,
-    Row4Col12,
-    Row4Col13,
-    Row5Col0,
-    Row5Col1,
-    Row5Col2,
-    Row5Col3,
-    Row5Col4,
-    Row5Col9,
-    Row5Col10,
-    Row5Col11,
-    Row5Col12,
-    Row5Col13,
+    LeftRow0Col0,
+    LeftRow0Col1,
+    LeftRow0Col2,
+    LeftRow0Col3,
+    LeftRow0Col4,
+    LeftRow0Col5,
+    LeftRow0Col6,
+    RightRow0Col0,
+    RightRow0Col1,
+    RightRow0Col2,
+    RightRow0Col3,
+    RightRow0Col4,
+    RightRow0Col5,
+    RightRow0Col6,
+    LeftRow1Col0,
+    LeftRow1Col1,
+    LeftRow1Col2,
+    LeftRow1Col3,
+    LeftRow1Col4,
+    LeftRow1Col5,
+    LeftRow1Col6,
+    RightRow1Col0,
+    RightRow1Col1,
+    RightRow1Col2,
+    RightRow1Col3,
+    RightRow1Col4,
+    RightRow1Col5,
+    RightRow1Col6,
+    LeftRow2Col0,
+    LeftRow2Col1,
+    LeftRow2Col2,
+    LeftRow2Col3,
+    LeftRow2Col4,
+    LeftRow2Col5,
+    LeftRow2Col6,
+    RightRow2Col0,
+    RightRow2Col1,
+    RightRow2Col2,
+    RightRow2Col3,
+    RightRow2Col4,
+    RightRow2Col5,
+    RightRow2Col6,
+    LeftRow3Col0,
+    LeftRow3Col1,
+    LeftRow3Col2,
+    LeftRow3Col3,
+    LeftRow3Col4,
+    LeftRow3Col5,
+    RightRow3Col0,
+    RightRow3Col1,
+    RightRow3Col2,
+    RightRow3Col3,
+    RightRow3Col4,
+    RightRow3Col5,
+    LeftRow4Col0,
+    LeftRow4Col1,
+    LeftRow4Col2,
+    LeftRow4Col3,
+    LeftRow4Col4,
+    RightRow4Col0,
+    RightRow4Col1,
+    RightRow4Col2,
+    RightRow4Col3,
+    RightRow4Col4,
+    LeftThumbRow0Col0,
+    LeftThumbRow0Col1,
+    LeftThumbRow1Col0,
+    LeftThumbRow1Col1,
+    LeftThumbRow1Col2,
+    RightThumbRow0Col0,
+    RightThumbRow0Col1,
+    RightThumbRow1Col0,
+    RightThumbRow1Col1,
+    RightThumbRow1Col2,
 }
 
 #[derive(KdlConfig, KdlConfigFinalize, Default, Debug)]
@@ -554,12 +554,12 @@ Error:
    ╰────
 
 Error: 
-  × Empty input group, check for duplicate or leading/trailing `+`
-    ╭─[bad-mappings.kdl:9:11]
+  × Unknown input "row0-col1"
+    ╭─[bad-mappings.kdl:9:24]
   8 │           - on-pressa : row0-col0 -> mouse-scroll-up 20
   9 │           - on-press : row0-col1 + -> mouse-scroll-down 20
-    ·           ────────────────────────┬───────────────────────
-    ·                                   ╰── here
+    ·                        ────┬────
+    ·                            ╰── here
  10 │           - on-press : row0-col2 mouse-scroll-left 20
     ╰────
 
@@ -574,12 +574,12 @@ Error:
     ╰────
 
 Error: 
-  × Unknown mouse output "mouse-scroll-right"
-    ╭─[bad-mappings.kdl:11:37]
+  × Unknown input "row0-col3"
+    ╭─[bad-mappings.kdl:11:24]
  10 │           - on-press : row0-col2 mouse-scroll-left 20
  11 │           - on-press : row0-col3 -> mouse-scroll-right
-    ·                                     ─────────┬────────
-    ·                                              ╰── here
+    ·                        ────┬────
+    ·                            ╰── here
  12 │           - on-press : row0-col99 -> keyboard-a
     ╰────
 
@@ -629,11 +629,11 @@ Error:
                     color: 0xFF0000,
                     pin_remappings: heapless::Vec::from_iter([
                         PinRemapping {
-                            input: RukeyInput::Row2Col0,
+                            input: RukeyInput::LeftRow2Col0,
                             pin: 3
                         },
                         PinRemapping {
-                            input: RukeyInput::Row2Col1,
+                            input: RukeyInput::LeftRow2Col1,
                             pin: 20
                         }
                     ])
@@ -641,42 +641,42 @@ Error:
                 profiles: heapless::Vec::from_iter([Profile {
                     mappings: heapless::Vec::from_iter([
                         Mapping {
-                            input_set: heapless::Vec::from_iter([RukeyInput::Row0Col0]),
+                            input_set: heapless::Vec::from_iter([RukeyInput::LeftRow0Col0]),
                             mode: MappingMode::OnPress,
                             output_sequence: heapless::Vec::from_iter([ComputerInput::Mouse(
                                 MouseInput::ScrollUp(20),
                             )]),
                         },
                         Mapping {
-                            input_set: heapless::Vec::from_iter([RukeyInput::Row0Col1]),
+                            input_set: heapless::Vec::from_iter([RukeyInput::LeftRow0Col1]),
                             mode: MappingMode::OnPress,
                             output_sequence: heapless::Vec::from_iter([ComputerInput::Mouse(
                                 MouseInput::ScrollDown(20),
                             )]),
                         },
                         Mapping {
-                            input_set: heapless::Vec::from_iter([RukeyInput::Row0Col2]),
+                            input_set: heapless::Vec::from_iter([RukeyInput::LeftRow0Col2]),
                             mode: MappingMode::OnPress,
                             output_sequence: heapless::Vec::from_iter([ComputerInput::Mouse(
                                 MouseInput::ScrollLeft(20),
                             )]),
                         },
                         Mapping {
-                            input_set: heapless::Vec::from_iter([RukeyInput::Row0Col3]),
+                            input_set: heapless::Vec::from_iter([RukeyInput::LeftRow0Col3]),
                             mode: MappingMode::OnPress,
                             output_sequence: heapless::Vec::from_iter([ComputerInput::Mouse(
                                 MouseInput::ScrollRight(20),
                             )]),
                         },
                         Mapping {
-                            input_set: heapless::Vec::from_iter([RukeyInput::Row1Col0]),
+                            input_set: heapless::Vec::from_iter([RukeyInput::LeftRow1Col0]),
                             mode: MappingMode::OnPress,
                             output_sequence: heapless::Vec::from_iter([ComputerInput::Keyboard(
                                 KeyboardInput::PageUp,
                             )]),
                         },
                         Mapping {
-                            input_set: heapless::Vec::from_iter([RukeyInput::Row1Col1]),
+                            input_set: heapless::Vec::from_iter([RukeyInput::LeftRow1Col1]),
                             mode: MappingMode::OnPress,
                             output_sequence: heapless::Vec::from_iter([ComputerInput::Keyboard(
                                 KeyboardInput::PageDown,
@@ -684,8 +684,8 @@ Error:
                         },
                         Mapping {
                             input_set: heapless::Vec::from_iter([
-                                RukeyInput::Row1Col0,
-                                RukeyInput::Row1Col1
+                                RukeyInput::LeftRow1Col0,
+                                RukeyInput::LeftRow1Col1
                             ]),
                             mode: MappingMode::OnHold { hold_ms: 50 },
                             output_sequence: heapless::Vec::from_iter([
