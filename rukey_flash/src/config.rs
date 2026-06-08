@@ -554,12 +554,12 @@ Error:
    ╰────
 
 Error: 
-  × Empty input group, check for duplicate or leading/trailing `+`
-    ╭─[bad-mappings.kdl:9:11]
+  × Unknown input "row0-col1"
+    ╭─[bad-mappings.kdl:9:24]
   8 │           - on-pressa : row0-col0 -> mouse-scroll-up 20
   9 │           - on-press : row0-col1 + -> mouse-scroll-down 20
-    ·           ────────────────────────┬───────────────────────
-    ·                                   ╰── here
+    ·                        ────┬────
+    ·                            ╰── here
  10 │           - on-press : row0-col2 mouse-scroll-left 20
     ╰────
 
@@ -574,12 +574,12 @@ Error:
     ╰────
 
 Error: 
-  × Unknown mouse output "mouse-scroll-right"
-    ╭─[bad-mappings.kdl:11:37]
+  × Unknown input "row0-col3"
+    ╭─[bad-mappings.kdl:11:24]
  10 │           - on-press : row0-col2 mouse-scroll-left 20
  11 │           - on-press : row0-col3 -> mouse-scroll-right
-    ·                                     ─────────┬────────
-    ·                                              ╰── here
+    ·                        ────┬────
+    ·                            ╰── here
  12 │           - on-press : row0-col99 -> keyboard-a
     ╰────
 

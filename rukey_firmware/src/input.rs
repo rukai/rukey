@@ -292,9 +292,9 @@ impl RukeyInputState {
             RukeyInput::LeftThumbRow1Col1 => self.pressed[5][4],
             RukeyInput::LeftThumbRow1Col2 => self.pressed[5][3],
             RukeyInput::RightThumbRow0Col0 => self.pressed[5][7],
-            RukeyInput::RightThumbRow0Col1 => self.pressed[5][9],
+            RukeyInput::RightThumbRow0Col1 => self.pressed[5][11],
             RukeyInput::RightThumbRow1Col0 => self.pressed[5][8],
-            RukeyInput::RightThumbRow1Col1 => self.pressed[5][11],
+            RukeyInput::RightThumbRow1Col1 => self.pressed[5][9],
             RukeyInput::RightThumbRow1Col2 => self.pressed[5][10],
         }
     }
